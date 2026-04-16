@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiArrowUpRight, FiX, FiCheck } from 'react-icons/fi'
+import { FiArrowUpRight, FiX } from 'react-icons/fi'
 
 type Modal = 'services' | 'pricing' | null
 type OpenService = number | null
@@ -296,43 +296,36 @@ export default function Home() {
               )}
 
               {modal === 'pricing' && (
-                <div className="px-6 py-6 space-y-4">
+                <div className="divide-y divide-[#111]">
                   {plans.map((p, i) => (
-                    <div key={i} className={`border p-6 ${p.featured ? 'border-[#c4a747]/50' : 'border-[#1f1f1f]'}`}>
-                      {p.featured && (
-                        <div className="text-[8px] font-mono text-[#c4a747] tracking-[0.25em] uppercase mb-4">Most popular</div>
-                      )}
-                      <div className="flex items-end justify-between mb-5">
+                    <div key={i} className="px-6 py-6">
+                      <div className="flex items-start justify-between mb-4">
                         <div>
-                          <div className="text-xs text-[#555] mb-1">{p.name}</div>
-                          <div className={`text-3xl font-mono font-bold ${p.featured ? 'text-[#c4a747]' : 'text-white'}`}>
-                            {p.price}
-                          </div>
+                          <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-2">{p.name}</div>
+                          <div className="text-base font-mono text-[#666]">{p.price}</div>
                         </div>
-                        <div className="text-[9px] font-mono text-[#3a3a3a] tracking-wider uppercase pb-1">{p.note}</div>
+                        <div className="text-[8px] font-mono text-[#222] tracking-wider uppercase pt-0.5">{p.note}</div>
                       </div>
-                      <ul className="space-y-2.5 mb-5">
+                      <ul className="space-y-1.5 mb-5">
                         {p.features.map((f, j) => (
-                          <li key={j} className="flex items-center gap-2.5 text-xs text-[#666]">
-                            <FiCheck size={11} className="text-[#c4a747] shrink-0" />
-                            {f}
+                          <li key={j} className="flex items-start gap-2">
+                            <span className="text-[#252525] text-[10px] mt-0.5 shrink-0">—</span>
+                            <span className="text-[10px] text-[#383838] font-light leading-relaxed">{f}</span>
                           </li>
                         ))}
                       </ul>
                       <a
                         href="tel:0540484052"
                         onClick={() => setModal(null)}
-                        className={`block w-full py-3 text-center text-sm font-medium transition-colors ${
-                          p.featured
-                            ? 'bg-[#c4a747] text-black hover:bg-[#d4b757]'
-                            : 'border border-[#2a2a2a] text-[#666] hover:border-[#c4a747] hover:text-white'
-                        }`}
+                        className="block w-full py-3 text-center text-[10px] font-light tracking-widest uppercase border border-[#1f1f1f] text-[#3a3a3a] hover:border-[#c4a747]/30 hover:text-[#666] transition-colors"
                       >
                         Get started
                       </a>
                     </div>
                   ))}
-                  <p className="text-center text-[10px] text-[#333] pt-2">MoMo · Bank transfer · Cash accepted</p>
+                  <div className="px-6 py-4">
+                    <p className="text-[9px] text-[#252525] font-mono tracking-wide">MoMo · Bank transfer · Cash accepted</p>
+                  </div>
                 </div>
               )}
             </motion.div>
