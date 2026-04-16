@@ -216,72 +216,70 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </svg>
       </header>
 
-      <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]">
+      <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]" style={{ WebkitTextSizeAdjust: '100%' }}>
 
         {/* Title */}
         <div className="px-6 py-10">
-          <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.3em] uppercase mb-5">
+          <div className="text-[8px] font-mono text-[#252525] tracking-[0.3em] uppercase mb-5">
             Service
           </div>
-          <h1 className="text-2xl font-serif font-light text-white leading-snug mb-3">
+          <h1 className="text-xl font-light text-[#999] leading-snug mb-3 tracking-wide">
             {service.title}
           </h1>
-          <p className="text-[11px] text-[#383838] font-light leading-relaxed tracking-wide">
+          <p className="text-[10px] text-[#2e2e2e] font-light leading-relaxed tracking-wide">
             {service.tagline}
           </p>
         </div>
 
         {/* Price */}
         {service.price && (
-          <div className="px-6 py-7">
-            <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-3">Pricing</div>
-            <div className="text-xl font-mono text-[#888]">{service.price}</div>
-            <div className="text-[9px] text-[#2a2a2a] font-mono mt-1 tracking-wide">{service.priceNote}</div>
+          <div className="px-6 py-6">
+            <div className="text-[8px] font-mono text-[#252525] tracking-[0.25em] uppercase mb-3">Pricing</div>
+            <div className="text-base font-mono text-[#666]">{service.price}</div>
+            <div className="text-[9px] text-[#252525] font-mono mt-1 tracking-wide">{service.priceNote}</div>
           </div>
         )}
 
-        {/* What's included */}
-        <div className="px-6 py-7">
-          <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-4">
-            Included
-          </div>
-          <ul className="space-y-2.5">
+        {/* Included */}
+        <div className="px-6 py-6">
+          <div className="text-[8px] font-mono text-[#252525] tracking-[0.25em] uppercase mb-4">Included</div>
+          <ul className="space-y-2">
             {service.includes.map((item, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-xs text-[#444] font-light leading-relaxed">
-                <span className="text-[#2a2a2a] mt-0.5">—</span>
-                {item}
+              <li key={i} className="flex items-start gap-2.5">
+                <span className="text-[#252525] text-xs mt-0.5 shrink-0">—</span>
+                <span className="text-[10px] text-[#3a3a3a] font-light leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Details */}
-        <div className="px-6 py-7 space-y-6">
+        <div className="px-6 py-6 space-y-5">
           {service.details.map((d, i) => (
             <div key={i}>
-              <div className="text-[9px] font-mono text-[#3a3a3a] tracking-[0.2em] uppercase mb-2">{d.heading}</div>
-              <p className="text-xs text-[#444] font-light leading-relaxed">{d.body}</p>
+              <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.2em] uppercase mb-1.5">{d.heading}</div>
+              <p className="text-[10px] text-[#383838] font-light leading-relaxed">{d.body}</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="px-6 py-7 flex flex-col gap-2">
+        <div className="px-6 py-6 flex flex-col gap-2">
           <a
             href="tel:0540484052"
-            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-xs font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
+            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
           >
-            Call — 0540 484 052
-            <FiArrowUpRight size={13} />
+            <span>Call — 0540 484 052</span>
+            <FiArrowUpRight size={12} />
           </a>
           <a
             href="https://wa.me/233540484052"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#3a3a3a] text-xs font-light tracking-widest uppercase hover:border-[#2a2a2a] hover:text-[#666] transition-colors"
+            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#2a2a2a] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#555] transition-colors"
           >
-            WhatsApp
-            <FiArrowUpRight size={13} />
+            <span>WhatsApp</span>
+            <FiArrowUpRight size={12} />
           </a>
         </div>
 
