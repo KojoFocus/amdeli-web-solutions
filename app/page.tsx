@@ -76,9 +76,16 @@ export default function Home() {
 
         {/* Header */}
         <header className="flex items-center justify-between px-6 py-5 shrink-0">
-          <span className="font-serif font-bold text-white text-base tracking-tight">
-            Amdeli <span className="text-[#c4a747]">Web Solutions</span>
-          </span>
+          <svg width="160" height="48" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="30" r="3" fill="#c4a747"/>
+            <circle cx="35" cy="20" r="3" fill="#c4a747"/>
+            <circle cx="35" cy="40" r="3" fill="#c4a747"/>
+            <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
+            <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
+            <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
+            <text x="50" y="35" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="700" fill="#ffffff">Amdeli</text>
+            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#999999" letterSpacing="1">WEB SOLUTIONS</text>
+          </svg>
           <span className="text-[9px] font-mono text-[#3a3a3a] tracking-[0.2em] uppercase">
             Accra · Ghana
           </span>
@@ -109,7 +116,7 @@ export default function Home() {
           <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2 overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
             <div className="shrink-0 mr-4">
-              <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase">Work</div>
+              <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase">Portfolio</div>
             </div>
             <div className="flex items-center gap-4 overflow-x-auto scrollbar-none flex-1 h-full py-3 snap-x snap-mandatory">
               {projects.map((p, i) => (
