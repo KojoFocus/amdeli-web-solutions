@@ -240,18 +240,20 @@ export default function Home() {
               </div>
 
               {modal === 'services' && (
-                <div className="divide-y divide-[#141414]">
+                <div className="divide-y divide-[#111]">
                   {services.map((s, i) => {
                     const isOpen = openService === i
                     return (
                       <div key={i}>
                         <button
                           onClick={() => setOpenService(isOpen ? null : i)}
-                          className="w-full flex items-center justify-between px-6 py-5 group hover:bg-white/[0.02] transition-colors text-left"
+                          className="w-full flex items-center justify-between px-6 py-4 group hover:bg-white/[0.01] transition-colors text-left"
                         >
-                          <span className="text-sm font-medium text-white">{s.title}</span>
-                          <span className={`text-[#444] group-hover:text-[#c4a747] transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : ''}`}>
-                            <FiArrowUpRight size={13} />
+                          <span className={`text-xs font-light tracking-wide transition-colors duration-200 ${isOpen ? 'text-white' : 'text-[#666]'}`}>
+                            {s.title}
+                          </span>
+                          <span className={`transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : 'text-[#2a2a2a]'}`}>
+                            <FiArrowUpRight size={12} />
                           </span>
                         </button>
 
@@ -261,20 +263,18 @@ export default function Home() {
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2 }}
+                              transition={{ duration: 0.18 }}
                               className="overflow-hidden"
                             >
-                              <div className="px-6 pb-5 flex flex-wrap gap-2">
-                                {s.tags.map((tag, j) => (
-                                  <span key={j} className="text-[9px] text-[#555] border border-[#1f1f1f] px-2.5 py-1 tracking-wide">
-                                    {tag}
-                                  </span>
-                                ))}
+                              <div className="px-6 pb-4">
+                                <p className="text-[10px] text-[#383838] font-light leading-relaxed tracking-wide">
+                                  {s.tags.join(' · ')}
+                                </p>
                                 <a
                                   href={s.href}
-                                  className="ml-auto text-[9px] text-[#c4a747] tracking-wide flex items-center gap-1 hover:opacity-70 transition-opacity"
+                                  className="inline-flex items-center gap-1 mt-2 text-[9px] text-[#333] hover:text-[#666] transition-colors tracking-widest uppercase"
                                 >
-                                  Learn more <FiArrowUpRight size={10} />
+                                  Details <FiArrowUpRight size={9} />
                                 </a>
                               </div>
                             </motion.div>
@@ -287,7 +287,7 @@ export default function Home() {
                     <a
                       href="tel:0540484052"
                       onClick={() => setModal(null)}
-                      className="block w-full py-3.5 text-center text-sm font-medium bg-[#c4a747] text-black hover:bg-[#d4b757] transition-colors"
+                      className="block w-full py-3.5 text-center text-xs font-light tracking-widest uppercase bg-[#c4a747] text-black hover:bg-[#d4b757] transition-colors"
                     >
                       Discuss your project
                     </a>

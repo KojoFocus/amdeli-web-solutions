@@ -216,39 +216,39 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </svg>
       </header>
 
-      <div className="flex-1 max-w-xl mx-auto w-full px-6 py-12 flex flex-col gap-12">
+      <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]">
 
         {/* Title */}
-        <div>
-          <div className="text-[8px] font-mono text-[#c4a747]/50 tracking-[0.3em] uppercase mb-4">
+        <div className="px-6 py-10">
+          <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.3em] uppercase mb-5">
             Service
           </div>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-4">
+          <h1 className="text-2xl font-serif font-light text-white leading-snug mb-3">
             {service.title}
           </h1>
-          <p className="text-[#555] text-sm font-light leading-relaxed">
+          <p className="text-[11px] text-[#383838] font-light leading-relaxed tracking-wide">
             {service.tagline}
           </p>
         </div>
 
         {/* Price */}
         {service.price && (
-          <div className="border-t border-[#1a1a1a] pt-8">
-            <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-2">Pricing</div>
-            <div className="text-3xl font-mono font-bold text-[#c4a747]">{service.price}</div>
-            <div className="text-[10px] text-[#333] font-mono mt-1">{service.priceNote}</div>
+          <div className="px-6 py-7">
+            <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-3">Pricing</div>
+            <div className="text-xl font-mono text-[#888]">{service.price}</div>
+            <div className="text-[9px] text-[#2a2a2a] font-mono mt-1 tracking-wide">{service.priceNote}</div>
           </div>
         )}
 
         {/* What's included */}
-        <div className="border-t border-[#1a1a1a] pt-8">
-          <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-5">
-            What&apos;s included
+        <div className="px-6 py-7">
+          <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-4">
+            Included
           </div>
-          <ul className="space-y-3">
+          <ul className="space-y-2.5">
             {service.includes.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-[#888] font-light">
-                <FiCheck size={12} className="text-[#c4a747] shrink-0 mt-0.5" />
+              <li key={i} className="flex items-start gap-2.5 text-xs text-[#444] font-light leading-relaxed">
+                <span className="text-[#2a2a2a] mt-0.5">—</span>
                 {item}
               </li>
             ))}
@@ -256,32 +256,32 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
 
         {/* Details */}
-        <div className="border-t border-[#1a1a1a] pt-8 space-y-7">
+        <div className="px-6 py-7 space-y-6">
           {service.details.map((d, i) => (
             <div key={i}>
-              <div className="text-xs font-medium text-white mb-1.5">{d.heading}</div>
-              <p className="text-sm text-[#555] font-light leading-relaxed">{d.body}</p>
+              <div className="text-[9px] font-mono text-[#3a3a3a] tracking-[0.2em] uppercase mb-2">{d.heading}</div>
+              <p className="text-xs text-[#444] font-light leading-relaxed">{d.body}</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="border-t border-[#1a1a1a] pt-8 flex flex-col gap-3">
+        <div className="px-6 py-7 flex flex-col gap-2">
           <a
             href="tel:0540484052"
-            className="flex items-center justify-between px-6 py-4 bg-[#c4a747] text-black font-medium text-sm hover:bg-[#d4b757] transition-colors"
+            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-xs font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
           >
-            Call us — 0540 484 052
-            <FiArrowUpRight size={14} />
+            Call — 0540 484 052
+            <FiArrowUpRight size={13} />
           </a>
           <a
             href="https://wa.me/233540484052"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-6 py-4 border border-[#1f1f1f] text-[#666] text-sm hover:border-[#c4a747]/40 hover:text-white transition-colors"
+            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#3a3a3a] text-xs font-light tracking-widest uppercase hover:border-[#2a2a2a] hover:text-[#666] transition-colors"
           >
-            WhatsApp us
-            <FiArrowUpRight size={14} />
+            WhatsApp
+            <FiArrowUpRight size={13} />
           </a>
         </div>
 
