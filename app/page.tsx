@@ -23,7 +23,7 @@ export default function Home() {
           <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
           <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
           <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#cccccc">Amdeli</text>
-          <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#aaaaaa" letterSpacing="1">WEB SOLUTIONS</text>
+          <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#aaaaaa" letterSpacing="1">TECH SOLUTIONS</text>
         </svg>
         <Link href="/about" className="text-[9px] font-mono text-[#777] hover:text-[#aaa] transition-colors tracking-[0.2em] uppercase">
           About Us
