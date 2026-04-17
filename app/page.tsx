@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-screen bg-[#0a0a0a] overflow-hidden flex flex-col">
+      <div className="h-screen bg-[#0a0a0a] overflow-hidden flex flex-col font-sans font-light text-[#777]" style={{ fontFamily: 'Inter, sans-serif' }}>
 
         {/* Header */}
         <header className="flex items-center justify-between px-6 py-5 shrink-0">
@@ -83,7 +83,7 @@ export default function Home() {
             <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
-            <text x="50" y="35" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="700" fill="#ffffff">Amdeli</text>
+            <text x="50" y="35" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="700" fill="#aaaaaa">Amdeli</text>
             <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#999999" letterSpacing="1">WEB SOLUTIONS</text>
           </svg>
           <span className="text-[9px] font-mono text-[#3a3a3a] tracking-[0.2em] uppercase">
@@ -104,12 +104,6 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/95 via-[#0a0a0a]/30 to-[#0a0a0a]/10" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/40 to-transparent" />
 
-            {/* Promo text — minimal, bottom-left corner */}
-            <div className="absolute bottom-0 left-0 p-6 md:p-8">
-              <p className="text-xs text-white/40 font-light leading-relaxed tracking-wide">
-                You&apos;re either online<br />or you&apos;re invisible.
-              </p>
-            </div>
           </div>
 
           {/* ② Project thumbnails */}
@@ -135,7 +129,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 px-2 pb-1.5">
-                    <div className="text-[7px] text-white/60 group-hover/t:text-white/90 transition-colors truncate leading-tight">{p.title}</div>
+                    <div className="text-[7px] text-white/30 group-hover/t:text-white/50 transition-colors truncate leading-tight">{p.title}</div>
                   </div>
                 </a>
               ))}
@@ -178,10 +172,10 @@ export default function Home() {
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
             <div>
               <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-1.5">Contact</div>
-              <a href="tel:0540484052" className="block text-xs text-[#444] hover:text-white transition-colors font-mono">
+              <a href="tel:0540484052" className="block text-xs text-[#444] hover:text-[#777] transition-colors font-mono">
                 0540 484 052
               </a>
-              <a href="mailto:hello@amdeli.gh" className="block text-xs text-[#444] hover:text-white transition-colors font-mono">
+              <a href="mailto:hello@amdeli.gh" className="block text-xs text-[#444] hover:text-[#777] transition-colors font-mono">
                 hello@amdeli.gh
               </a>
             </div>
@@ -228,13 +222,14 @@ export default function Home() {
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 z-50 bg-[#0e0e0e] border-t border-[#1f1f1f] max-h-[85vh] overflow-y-auto"
+              className="fixed bottom-0 left-0 right-0 z-50 bg-[#0e0e0e] border-t border-[#1f1f1f] max-h-[85vh] overflow-y-auto font-light text-[#777]"
+              style={{ fontFamily: 'Inter, sans-serif' }}
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] sticky top-0 bg-[#0e0e0e]">
                 <span className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase">
                   {modal === 'services' ? 'Services' : 'Pricing'}
                 </span>
-                <button onClick={() => setModal(null)} className="text-[#3a3a3a] hover:text-white transition-colors p-1">
+                <button onClick={() => setModal(null)} className="text-[#3a3a3a] hover:text-[#bbb] transition-colors p-1">
                   <FiX size={18} />
                 </button>
               </div>
@@ -249,7 +244,7 @@ export default function Home() {
                           onClick={() => setOpenService(isOpen ? null : i)}
                           className="w-full flex items-center justify-between px-6 py-4 group hover:bg-white/[0.01] transition-colors text-left"
                         >
-                          <span className={`text-xs font-light tracking-wide transition-colors duration-200 ${isOpen ? 'text-white' : 'text-[#666]'}`}>
+                          <span className="text-sm font-sans font-light tracking-wide text-[#777]">
                             {s.title}
                           </span>
                           <span className={`transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : 'text-[#2a2a2a]'}`}>
@@ -267,7 +262,7 @@ export default function Home() {
                               className="overflow-hidden"
                             >
                               <div className="px-6 pb-4">
-                                <p className="text-[10px] text-[#383838] font-light leading-relaxed tracking-wide">
+                                <p className="text-[10px] text-[#444] font-light leading-relaxed tracking-wide">
                                   {s.tags.join(' · ')}
                                 </p>
                                 <a
@@ -302,7 +297,7 @@ export default function Home() {
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-2">{p.name}</div>
-                          <div className="text-base font-mono text-[#666]">{p.price}</div>
+                          <div className="text-sm font-sans font-light text-[#777] tracking-wide">{p.price}</div>
                         </div>
                         <div className="text-[8px] font-mono text-[#222] tracking-wider uppercase pt-0.5">{p.note}</div>
                       </div>
@@ -310,7 +305,7 @@ export default function Home() {
                         {p.features.map((f, j) => (
                           <li key={j} className="flex items-start gap-2">
                             <span className="text-[#252525] text-[10px] mt-0.5 shrink-0">—</span>
-                            <span className="text-[10px] text-[#383838] font-light leading-relaxed">{f}</span>
+                            <span className="text-[10px] text-[#444] font-light leading-relaxed">{f}</span>
                           </li>
                         ))}
                       </ul>
