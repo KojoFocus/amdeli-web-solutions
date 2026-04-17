@@ -38,10 +38,10 @@ export default function Home() {
           <img
             src="https://picsum.photos/seed/accrawork/900/700"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-35"
+            className="absolute inset-0 w-full h-full object-cover opacity-55"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/95 via-[#141414]/30 to-[#141414]/10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#141414]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/90 via-[#141414]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141414]/30 to-transparent" />
         </div>
 
         {/* ② Portfolio */}
