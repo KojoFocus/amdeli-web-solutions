@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-[100dvh] bg-[#0a0a0a] overflow-hidden flex flex-col font-sans font-light text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="h-[100dvh] bg-[#0a0a0a] overflow-hidden flex flex-col">
 
         {/* Header */}
         <header className="flex items-center justify-between px-6 py-5 shrink-0">
@@ -209,8 +209,7 @@ export default function Home() {
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 z-50 bg-[#0e0e0e] border-t border-[#1f1f1f] max-h-[85vh] overflow-y-auto font-light text-[#999]"
-              style={{ fontFamily: 'Inter, sans-serif' }}
+              className="fixed bottom-0 left-0 right-0 z-50 bg-[#0e0e0e] border-t border-[#1f1f1f] max-h-[85vh] overflow-y-auto"
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] sticky top-0 bg-[#0e0e0e]">
                 <span className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase">
@@ -231,7 +230,7 @@ export default function Home() {
                           onClick={() => setOpenService(isOpen ? null : i)}
                           className="w-full flex items-center justify-between px-6 py-4 group hover:bg-white/[0.01] transition-colors text-left"
                         >
-                          <span className="text-xs font-light tracking-wide text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          <span className="text-xs font-light tracking-wide text-[#999]">
                             {s.title}
                           </span>
                           <span className={`transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : 'text-[#2a2a2a]'}`}>

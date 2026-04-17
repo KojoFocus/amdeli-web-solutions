@@ -201,7 +201,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   if (!service) notFound()
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col font-light text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
 
       {/* Header */}
       <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#0a0a0a]">
