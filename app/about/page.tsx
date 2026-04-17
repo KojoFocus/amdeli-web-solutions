@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { FiArrowLeft, FiArrowUpRight } from 'react-icons/fi'
+import { FiArrowUpRight } from 'react-icons/fi'
+import BackButton from '@/app/components/BackButton'
 
 export default function AboutPage() {
   return (
@@ -7,14 +8,9 @@ export default function AboutPage() {
 
       {/* Header */}
       <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#0a0a0a]">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-[#555] hover:text-[#999] transition-colors text-sm"
-        >
-          <FiArrowLeft size={14} />
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Back</span>
-        </Link>
-        <svg width="120" height="36" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+        <BackButton />
+        <Link href="/">
+          <svg width="120" height="36" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
           <circle cx="20" cy="30" r="3" fill="#c4a747"/>
           <circle cx="35" cy="20" r="3" fill="#c4a747"/>
           <circle cx="35" cy="40" r="3" fill="#c4a747"/>
@@ -23,7 +19,8 @@ export default function AboutPage() {
           <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
           <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#aaaaaa">Amdeli</text>
           <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#555555" letterSpacing="1">WEB SOLUTIONS</text>
-        </svg>
+          </svg>
+        </Link>
       </header>
 
       <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]">
