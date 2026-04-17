@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 import { FiArrowUpRight, FiX } from 'react-icons/fi'
 
 type Modal = 'services' | 'pricing' | null
@@ -12,8 +13,8 @@ const projects = [
   { title: 'Focus Honey',        category: 'Online Store',   image: '/images/focushoney.png',                    href: 'https://focushoney.com' },
   { title: 'Pimpinis',           category: 'Restaurant',     image: '/images/pimpinis1.png',                       href: 'https://pimpinis.vercel.app' },
   { title: 'Folio',              category: 'Portfolio',      image: '/images/folio.png',                          href: 'https://folio-1cvo.vercel.app/' },
-  { title: 'Born Seen',          category: 'Fashion',        image: '/images/bornseen.png',                       href: 'https://born-seen.vercel.app/' },
   { title: 'Juro',               category: 'Business',       image: '/images/juro.png',                           href: 'https://juro-one.vercel.app/' },
+  { title: 'Born Seen',          category: 'Fashion',        image: '/images/bornseen.png',                       href: 'https://born-seen.vercel.app/' },
 ]
 
 const services = [
@@ -86,9 +87,9 @@ export default function Home() {
             <text x="50" y="35" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="700" fill="#aaaaaa">Amdeli</text>
             <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#999999" letterSpacing="1">WEB SOLUTIONS</text>
           </svg>
-          <span className="text-[9px] font-mono text-[#3a3a3a] tracking-[0.2em] uppercase">
-            Accra · Ghana
-          </span>
+          <Link href="/about" className="text-[9px] font-mono text-[#3a3a3a] hover:text-[#777] transition-colors tracking-[0.2em] uppercase">
+            About Us
+          </Link>
         </header>
 
         {/* Grid */}
