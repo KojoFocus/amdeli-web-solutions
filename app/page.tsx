@@ -319,16 +319,26 @@ export default function Home() {
                   <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase">Services</div>
                 </div>
                 <div className="divide-y divide-[#111]">
-                  {services.map((s) => (
-                    <button key={s.slug} onClick={() => openService(s.slug)}
-                      className="w-full flex items-center justify-between px-6 py-5 hover:bg-white/[0.02] transition-colors group text-left">
-                      <div>
-                        <div className="text-xs font-light text-[#aaa] tracking-wide mb-1.5">{s.title}</div>
-                        <div className="text-[10px] text-[#666] font-light leading-relaxed">{s.tags.join(' · ')}</div>
+                  {services.map((s) => {
+                    const d = serviceDetails[s.slug]
+                    return (
+                      <div key={s.slug} className="px-6 py-7">
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="text-xs font-light text-[#aaa] tracking-wide">{s.title}</div>
+                          {d.price && <div className="text-[9px] font-mono text-[#c4a747] tracking-wide shrink-0 ml-4">{d.price}</div>}
+                        </div>
+                        <p className="text-[10px] text-[#666] font-light leading-relaxed mb-5">{d.tagline}</p>
+                        <div className="space-y-4">
+                          {d.details.map((item, i) => (
+                            <div key={i}>
+                              <div className="text-[8px] font-mono text-[#555] tracking-[0.2em] uppercase mb-1">{item.heading}</div>
+                              <p className="text-[10px] text-[#666] font-light leading-relaxed">{item.body}</p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <FiArrowUpRight size={12} className="text-[#333] group-hover:text-[#c4a747] transition-colors shrink-0 ml-4" />
-                    </button>
-                  ))}
+                    )
+                  })}
                 </div>
                 <div className="px-6 py-6 border-t border-[#111]">
                   <a href="tel:0540484052"
