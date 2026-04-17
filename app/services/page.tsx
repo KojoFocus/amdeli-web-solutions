@@ -37,9 +37,9 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+    <div className="min-h-screen bg-[#141414] flex flex-col">
 
-      <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#0a0a0a]">
+      <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#141414]">
         <BackButton />
         <Link href="/">
           <svg width="120" height="36" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
@@ -49,15 +49,15 @@ export default function ServicesPage() {
             <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
-            <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#aaaaaa">Amdeli</text>
-            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#555555" letterSpacing="1">WEB SOLUTIONS</text>
+            <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#cccccc">Amdeli</text>
+            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#777777" letterSpacing="1">WEB SOLUTIONS</text>
           </svg>
         </Link>
       </header>
 
       <div className="flex-1 max-w-xl mx-auto w-full">
         <div className="px-6 py-8">
-          <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-6">Services</div>
+          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-6">Services</div>
         </div>
 
         <div className="divide-y divide-[#111]">
@@ -68,8 +68,8 @@ export default function ServicesPage() {
               className="flex items-center justify-between px-6 py-5 hover:bg-white/[0.02] transition-colors group"
             >
               <div>
-                <div className="text-xs font-light text-[#999] tracking-wide mb-1.5">{s.title}</div>
-                <div className="text-[10px] text-[#555] font-light leading-relaxed">{s.tags.join(' · ')}</div>
+                <div className="text-xs font-light text-[#bbb] tracking-wide mb-1.5">{s.title}</div>
+                <div className="text-[10px] text-[#777] font-light leading-relaxed">{s.tags.join(' · ')}</div>
               </div>
               <FiArrowUpRight size={12} className="text-[#333] group-hover:text-[#c4a747] transition-colors shrink-0 ml-4" />
             </Link>

@@ -8,7 +8,7 @@ export default function BackButton() {
   return (
     <button
       onClick={() => router.back()}
-      className="flex items-center gap-2 text-[#555] hover:text-[#999] transition-colors text-sm"
+      className="flex items-center gap-2 text-[#777] hover:text-[#bbb] transition-colors text-sm"
       style={{ fontFamily: 'Inter, sans-serif' }}
     >
       <FiArrowLeft size={14} />

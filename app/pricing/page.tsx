@@ -21,9 +21,9 @@ const plans = [
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+    <div className="min-h-screen bg-[#141414] flex flex-col">
 
-      <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#0a0a0a]">
+      <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#141414]">
         <BackButton />
         <Link href="/">
           <svg width="120" height="36" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
@@ -33,16 +33,16 @@ export default function PricingPage() {
             <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
-            <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#aaaaaa">Amdeli</text>
-            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#555555" letterSpacing="1">WEB SOLUTIONS</text>
+            <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#cccccc">Amdeli</text>
+            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#777777" letterSpacing="1">WEB SOLUTIONS</text>
           </svg>
         </Link>
       </header>
 
       <div className="flex-1 max-w-xl mx-auto w-full">
         <div className="px-6 py-8">
-          <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-2">Pricing</div>
-          <p className="text-[10px] text-[#555] font-light leading-relaxed">Custom projects are quoted on scope. Reach out for an estimate.</p>
+          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-2">Pricing</div>
+          <p className="text-[10px] text-[#777] font-light leading-relaxed">Custom projects are quoted on scope. Reach out for an estimate.</p>
         </div>
 
         <div className="divide-y divide-[#111]">
@@ -50,8 +50,8 @@ export default function PricingPage() {
             <div key={p.name} className="px-6 py-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-2">{p.name}</div>
-                  <div className="text-xs font-light text-[#999] tracking-wide">{p.price}</div>
+                  <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-2">{p.name}</div>
+                  <div className="text-xs font-light text-[#bbb] tracking-wide">{p.price}</div>
                 </div>
                 <div className="text-[8px] font-mono text-[#444] tracking-wider uppercase pt-0.5">{p.note}</div>
               </div>
@@ -59,13 +59,13 @@ export default function PricingPage() {
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2">
                     <span className="text-[#333] text-[10px] mt-0.5 shrink-0">—</span>
-                    <span className="text-[10px] text-[#555] font-light leading-relaxed">{f}</span>
+                    <span className="text-[10px] text-[#777] font-light leading-relaxed">{f}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href={p.href}
-                className="flex items-center justify-between px-5 py-3 border border-[#1a1a1a] text-[#444] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#666] transition-colors"
+                className="flex items-center justify-between px-5 py-3 border border-[#1a1a1a] text-[#444] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#bbb] transition-colors"
               >
                 <span>View details</span>
                 <FiArrowUpRight size={10} />

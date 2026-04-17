@@ -201,10 +201,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   if (!service) notFound()
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+    <div className="min-h-screen bg-[#141414] flex flex-col">
 
       {/* Header */}
-      <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#0a0a0a]">
+      <header className="sticky top-0 z-10 flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] bg-[#141414]">
         <BackButton />
         <Link href="/">
           <svg width="120" height="36" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
@@ -214,8 +214,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
             <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
-            <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#aaaaaa">Amdeli</text>
-            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#555555" letterSpacing="1">WEB SOLUTIONS</text>
+            <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#cccccc">Amdeli</text>
+            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#777777" letterSpacing="1">WEB SOLUTIONS</text>
           </svg>
         </Link>
       </header>
@@ -224,13 +224,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         {/* Title */}
         <div className="px-6 py-10">
-          <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-5">
+          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-5">
             Service
           </div>
-          <h1 className="text-sm font-light font-sans text-[#999] leading-snug mb-3 tracking-wide">
+          <h1 className="text-sm font-light font-sans text-[#bbb] leading-snug mb-3 tracking-wide">
             {service.title}
           </h1>
-          <p className="text-[10px] text-[#666] font-light leading-relaxed tracking-wide">
+          <p className="text-[10px] text-[#bbb] font-light leading-relaxed tracking-wide">
             {service.tagline}
           </p>
         </div>
@@ -238,20 +238,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {/* Price */}
         {service.price && (
           <div className="px-6 py-6">
-            <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-3">Pricing</div>
-            <div className="text-sm font-light text-[#999] tracking-wide">{service.price}</div>
-            <div className="text-[8px] text-[#555] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
+            <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Pricing</div>
+            <div className="text-sm font-light text-[#bbb] tracking-wide">{service.price}</div>
+            <div className="text-[8px] text-[#777] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
           </div>
         )}
 
         {/* Included */}
         <div className="px-6 py-6">
-          <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-4">Included</div>
+          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-4">Included</div>
           <ul className="space-y-2">
             {service.includes.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
-                <span className="text-[#555] text-xs mt-0.5 shrink-0">—</span>
-                <span className="text-[10px] text-[#666] font-light leading-relaxed">{item}</span>
+                <span className="text-[#777] text-xs mt-0.5 shrink-0">—</span>
+                <span className="text-[10px] text-[#bbb] font-light leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -261,8 +261,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="px-6 py-6 space-y-5">
           {service.details.map((d, i) => (
             <div key={i}>
-              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
-              <p className="text-[10px] text-[#666] font-light leading-relaxed">{d.body}</p>
+              <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
+              <p className="text-[10px] text-[#bbb] font-light leading-relaxed">{d.body}</p>
             </div>
           ))}
         </div>
@@ -280,7 +280,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             href="https://wa.me/233540484052"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#2a2a2a] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#555] transition-colors"
+            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#2a2a2a] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#777] transition-colors"
           >
             <span>WhatsApp</span>
             <FiArrowUpRight size={12} />
