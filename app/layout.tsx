@@ -12,7 +12,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: 'dark' }}>
+      <head>
+        <meta name="color-scheme" content="dark" />
+      </head>
       <body style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, background: '#0a0a0a', color: '#999' }}>
         {children}
       </body>
