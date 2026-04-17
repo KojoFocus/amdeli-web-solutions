@@ -231,7 +231,7 @@ export default function Home() {
                           onClick={() => setOpenService(isOpen ? null : i)}
                           className="w-full flex items-center justify-between px-6 py-4 group hover:bg-white/[0.01] transition-colors text-left"
                         >
-                          <span className="text-sm font-light tracking-wide text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          <span className="text-xs font-light tracking-wide text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
                             {s.title}
                           </span>
                           <span className={`transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : 'text-[#2a2a2a]'}`}>
@@ -284,7 +284,7 @@ export default function Home() {
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-2">{p.name}</div>
-                          <div className="text-sm font-sans font-light text-[#999] tracking-wide">{p.price}</div>
+                          <div className="text-xs font-light text-[#999] tracking-wide">{p.price}</div>
                         </div>
                         <div className="text-[8px] font-mono text-[#222] tracking-wider uppercase pt-0.5">{p.note}</div>
                       </div>
