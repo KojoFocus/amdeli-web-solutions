@@ -28,10 +28,10 @@ export default function AboutPage() {
         {/* Intro */}
         <div className="px-6 py-10">
           <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-5">About Us</div>
-          <h1 className="text-sm font-light text-[#bbb] leading-snug mb-4 tracking-wide">
+          <h1 className="text-sm font-light text-[#aaa] leading-snug mb-4 tracking-wide">
             We build digital tools for Ghanaian businesses.
           </h1>
-          <p className="text-[10px] text-[#bbb] font-light leading-relaxed tracking-wide">
+          <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">
             Amdeli is a web solutions studio based in Accra. We work with small and growing businesses — helping them get online, sell products, and show up where their customers are looking.
           </p>
         </div>
@@ -41,22 +41,22 @@ export default function AboutPage() {
           <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-4">What we believe</div>
           <div>
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">Simple works</div>
-            <p className="text-[10px] text-[#bbb] font-light leading-relaxed">A clear, fast website beats a flashy one. We build what your customers actually need — nothing extra.</p>
+            <p className="text-[10px] text-[#aaa] font-light leading-relaxed">A clear, fast website beats a flashy one. We build what your customers actually need — nothing extra.</p>
           </div>
           <div>
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">Mobile first</div>
-            <p className="text-[10px] text-[#bbb] font-light leading-relaxed">Most of your customers are on a phone. Everything we build works perfectly on mobile before anything else.</p>
+            <p className="text-[10px] text-[#aaa] font-light leading-relaxed">Most of your customers are on a phone. Everything we build works perfectly on mobile before anything else.</p>
           </div>
           <div>
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">Local knowledge</div>
-            <p className="text-[10px] text-[#bbb] font-light leading-relaxed">We understand the Ghanaian market — MoMo payments, slow connections, how people search locally. That shapes every decision we make.</p>
+            <p className="text-[10px] text-[#aaa] font-light leading-relaxed">We understand the Ghanaian market — MoMo payments, slow connections, how people search locally. That shapes every decision we make.</p>
           </div>
         </div>
 
         {/* Location */}
         <div className="px-6 py-6">
           <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Where we are</div>
-          <p className="text-[10px] text-[#bbb] font-light leading-relaxed tracking-wide">
+          <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">
             Accra, Ghana — available across the country remotely.
           </p>
         </div>

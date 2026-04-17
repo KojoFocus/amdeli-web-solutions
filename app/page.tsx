@@ -25,7 +25,7 @@ export default function Home() {
           <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#cccccc">Amdeli</text>
           <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#aaaaaa" letterSpacing="1">WEB SOLUTIONS</text>
         </svg>
-        <Link href="/about" className="text-[9px] font-mono text-[#777] hover:text-[#bbb] transition-colors tracking-[0.2em] uppercase">
+        <Link href="/about" className="text-[9px] font-mono text-[#777] hover:text-[#aaa] transition-colors tracking-[0.2em] uppercase">
           About Us
         </Link>
       </header>
@@ -79,7 +79,7 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
           <div>
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1">Services</div>
-            <div className="text-xs text-[#bbb] group-hover:text-[#bbb] transition-colors font-light">
+            <div className="text-xs text-[#aaa] group-hover:text-[#aaa] transition-colors font-light">
               Websites · Stores · Marketing
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
           <div>
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1">Pricing</div>
-            <div className="text-xs text-[#bbb] group-hover:text-[#bbb] transition-colors font-light">
+            <div className="text-xs text-[#aaa] group-hover:text-[#aaa] transition-colors font-light">
               From GH₵1,200
             </div>
           </div>
@@ -106,9 +106,9 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
           <div>
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1">Contact</div>
-            <a href="tel:0540484052" className="block text-[10px] text-[#bbb] hover:text-[#bbb] transition-colors font-mono leading-snug">0540 484 052</a>
-            <a href="mailto:hello@amdeli.gh" className="block text-[10px] text-[#bbb] hover:text-[#bbb] transition-colors font-mono leading-snug">hello@amdeli.gh</a>
-            <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-[10px] text-[#bbb] hover:text-[#bbb] transition-colors font-mono leading-snug">WhatsApp</a>
+            <a href="tel:0540484052" className="block text-[10px] text-[#aaa] hover:text-[#aaa] transition-colors font-mono leading-snug">0540 484 052</a>
+            <a href="mailto:hello@amdeli.gh" className="block text-[10px] text-[#aaa] hover:text-[#aaa] transition-colors font-mono leading-snug">hello@amdeli.gh</a>
+            <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-[10px] text-[#aaa] hover:text-[#aaa] transition-colors font-mono leading-snug">WhatsApp</a>
           </div>
           <FiArrowUpRight size={13} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
         </div>

@@ -68,8 +68,8 @@ export default function ServicesPage() {
               className="flex items-center justify-between px-6 py-5 hover:bg-white/[0.02] transition-colors group"
             >
               <div>
-                <div className="text-xs font-light text-[#bbb] tracking-wide mb-1.5">{s.title}</div>
-                <div className="text-[10px] text-[#777] font-light leading-relaxed">{s.tags.join(' · ')}</div>
+                <div className="text-xs font-light text-[#aaa] tracking-wide mb-1.5" style={{ fontFamily: 'Inter, sans-serif' }}>{s.title}</div>
+                <div className="text-[10px] text-[#666] font-light leading-relaxed">{s.tags.join(' · ')}</div>
               </div>
               <FiArrowUpRight size={12} className="text-[#333] group-hover:text-[#c4a747] transition-colors shrink-0 ml-4" />
             </Link>

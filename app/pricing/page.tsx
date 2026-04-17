@@ -51,7 +51,7 @@ export default function PricingPage() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-2">{p.name}</div>
-                  <div className="text-xs font-light text-[#bbb] tracking-wide">{p.price}</div>
+                  <div className="text-xs font-light text-[#aaa] tracking-wide">{p.price}</div>
                 </div>
                 <div className="text-[8px] font-mono text-[#444] tracking-wider uppercase pt-0.5">{p.note}</div>
               </div>
@@ -65,7 +65,7 @@ export default function PricingPage() {
               </ul>
               <Link
                 href={p.href}
-                className="flex items-center justify-between px-5 py-3 border border-[#1a1a1a] text-[#444] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#bbb] transition-colors"
+                className="flex items-center justify-between px-5 py-3 border border-[#1a1a1a] text-[#444] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#aaa] transition-colors"
               >
                 <span>View details</span>
                 <FiArrowUpRight size={10} />

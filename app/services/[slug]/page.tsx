@@ -227,10 +227,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-5">
             Service
           </div>
-          <h1 className="text-sm font-light font-sans text-[#bbb] leading-snug mb-3 tracking-wide">
+          <h1 className="text-sm font-light font-sans text-[#aaa] leading-snug mb-3 tracking-wide">
             {service.title}
           </h1>
-          <p className="text-[10px] text-[#bbb] font-light leading-relaxed tracking-wide">
+          <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">
             {service.tagline}
           </p>
         </div>
@@ -239,7 +239,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {service.price && (
           <div className="px-6 py-6">
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Pricing</div>
-            <div className="text-sm font-light text-[#bbb] tracking-wide">{service.price}</div>
+            <div className="text-sm font-light text-[#aaa] tracking-wide">{service.price}</div>
             <div className="text-[8px] text-[#777] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
           </div>
         )}
@@ -251,7 +251,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {service.includes.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
                 <span className="text-[#777] text-xs mt-0.5 shrink-0">—</span>
-                <span className="text-[10px] text-[#bbb] font-light leading-relaxed">{item}</span>
+                <span className="text-[10px] text-[#aaa] font-light leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -262,7 +262,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {service.details.map((d, i) => (
             <div key={i}>
               <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
-              <p className="text-[10px] text-[#bbb] font-light leading-relaxed">{d.body}</p>
+              <p className="text-[10px] text-[#aaa] font-light leading-relaxed">{d.body}</p>
             </div>
           ))}
         </div>
