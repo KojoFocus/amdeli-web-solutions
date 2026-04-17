@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { FiArrowUpRight, FiX } from 'react-icons/fi'
@@ -67,9 +68,15 @@ const plans = [
   },
 ]
 
-export default function Home() {
-  const [modal, setModal] = useState<Modal>(null)
+function HomeInner() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const modal = (searchParams.get('modal') as Modal) ?? null
   const [openService, setOpenService] = useState<OpenService>(null)
+
+  function openModal(m: Modal) {
+    router.push(m ? `/?modal=${m}` : '/', { scroll: false })
+  }
 
   return (
     <>
@@ -140,7 +147,7 @@ export default function Home() {
 
           {/* ③ Services */}
           <button
-            onClick={() => setModal('services')}
+            onClick={() => openModal('services')}
             className="relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] transition-colors text-left overflow-hidden md:col-start-2"
           >
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
@@ -155,7 +162,7 @@ export default function Home() {
 
           {/* ④ Pricing */}
           <button
-            onClick={() => setModal('pricing')}
+            onClick={() => openModal('pricing')}
             className="relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] transition-colors text-left overflow-hidden md:col-start-2"
           >
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
@@ -199,7 +206,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setModal(null)}
+              onClick={() => openModal(null)}
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
             />
 
@@ -215,7 +222,7 @@ export default function Home() {
                 <span className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase">
                   {modal === 'services' ? 'Services' : 'Pricing'}
                 </span>
-                <button onClick={() => setModal(null)} className="text-[#555] hover:text-[#bbb] transition-colors p-1">
+                <button onClick={() => openModal(null)} className="text-[#555] hover:text-[#bbb] transition-colors p-1">
                   <FiX size={18} />
                 </button>
               </div>
@@ -267,7 +274,7 @@ export default function Home() {
                   <div className="px-6 py-5">
                     <a
                       href="tel:0540484052"
-                      onClick={() => setModal(null)}
+                      onClick={() => openModal(null)}
                       className="block w-full py-3.5 text-center text-xs font-light tracking-widest uppercase bg-[#c4a747] text-black hover:bg-[#d4b757] transition-colors"
                     >
                       Discuss your project
@@ -297,7 +304,7 @@ export default function Home() {
                       </ul>
                       <a
                         href="tel:0540484052"
-                        onClick={() => setModal(null)}
+                        onClick={() => openModal(null)}
                         className="block w-full py-3 text-center text-[10px] font-light tracking-widest uppercase border border-[#1f1f1f] text-[#555] hover:border-[#c4a747]/30 hover:text-[#666] transition-colors"
                       >
                         Get started
@@ -315,4 +322,9 @@ export default function Home() {
       </AnimatePresence>
     </>
   )
+}
+
+import { Suspense } from 'react'
+export default function Home() {
+  return <Suspense><HomeInner /></Suspense>
 }
