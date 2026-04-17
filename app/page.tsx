@@ -51,7 +51,7 @@ export default function Home() {
             <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase">Portfolio</div>
           </div>
           <div className="flex items-center gap-3 overflow-x-auto scrollbar-none flex-1 h-full py-2.5 snap-x snap-mandatory">
-            {projects.map((p) => (
+            {projects.map((p, i) => (
               <a
                 key={p.href}
                 href={p.href}
@@ -60,7 +60,7 @@ export default function Home() {
                 title={p.title}
                 className="snap-start shrink-0 w-[22vw] md:w-14 h-full max-h-16 relative overflow-hidden border border-[#222] hover:border-[#c4a747]/50 transition-colors group/t"
               >
-                <img src={p.image} alt={p.title} className="w-full h-full object-cover opacity-50 group-hover/t:opacity-85 transition-opacity duration-300" />
+                <img src={p.image} alt={p.title} className={`w-full h-full object-cover ${i === 0 ? 'opacity-65' : 'opacity-50'} group-hover/t:opacity-85 transition-opacity duration-300`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 px-2 pb-1.5">
                   <div className="text-[7px] text-white/30 group-hover/t:text-white/50 transition-colors truncate leading-tight">{p.title}</div>
