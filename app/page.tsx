@@ -1,344 +1,119 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
-import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { FiArrowUpRight, FiX } from 'react-icons/fi'
+import { FiArrowUpRight } from 'react-icons/fi'
 
-type Modal = 'services' | 'pricing' | null
-type OpenService = number | null
-
-// ─── Replace image paths with real client screenshots ────────────────────────
 const projects = [
-  { title: 'Focus Honey',        category: 'Online Store',   image: '/images/focushoney.png',                    href: 'https://focushoney.com' },
-  { title: 'Pimpinis',           category: 'Restaurant',     image: '/images/pimpinis1.png',                       href: 'https://pimpinis.vercel.app' },
-  { title: 'Folio',              category: 'Portfolio',      image: '/images/folio.png',                          href: 'https://folio-1cvo.vercel.app/' },
-  { title: 'Juro',               category: 'Business',       image: '/images/juro.png',                           href: 'https://juro-one.vercel.app/' },
-  { title: 'Born Seen',          category: 'Fashion',        image: '/images/bornseen.png',                       href: 'https://born-seen.vercel.app/' },
+  { title: 'Focus Honey',  image: '/images/focushoney.png', href: 'https://focushoney.com' },
+  { title: 'Pimpinis',    image: '/images/pimpinis1.png',  href: 'https://pimpinis.vercel.app' },
+  { title: 'Folio',       image: '/images/folio.png',      href: 'https://folio-1cvo.vercel.app/' },
+  { title: 'Juro',        image: '/images/juro.png',       href: 'https://juro-one.vercel.app/' },
+  { title: 'Born Seen',   image: '/images/bornseen.png',   href: 'https://born-seen.vercel.app/' },
 ]
 
-const services = [
-  {
-    title: 'Basic Website',
-    href: '/services/basic-website',
-    tags: ['Custom domain', 'Business email', 'Google SEO', 'Mobile-ready', 'Contact form'],
-  },
-  {
-    title: 'Online Store',
-    href: '/services/online-store',
-    tags: ['Product dashboard', 'Order tracking', 'Paystack', 'MoMo', 'Inventory management'],
-  },
-  {
-    title: 'Digital Marketing',
-    href: '/services/digital-marketing',
-    tags: ['Google SEO', 'Google Business', 'Social media setup', 'Monthly reports'],
-  },
-  {
-    title: 'Maintenance',
-    href: '/services/maintenance',
-    tags: ['Monthly updates', 'Security monitoring', 'Backups', 'Content edits'],
-  },
-  {
-    title: 'Custom Development',
-    href: '/services/custom-development',
-    tags: ['Web apps', 'Booking systems', 'Portals', 'API integrations'],
-  },
-  {
-    title: 'Business Consulting',
-    href: '/services/consulting',
-    tags: ['Digital strategy', 'Competitor research', 'Growth roadmap'],
-  },
-]
-
-const plans = [
-  {
-    name: 'Basic Website',
-    price: 'GH₵1,200',
-    note: 'One-time',
-    features: ['5 professional pages', 'Mobile responsive', 'Contact form', 'Basic SEO', 'Free SSL', '1 month support'],
-    featured: false,
-  },
-  {
-    name: 'Online Store',
-    price: 'GH₵2,500',
-    note: 'One-time',
-    features: ['Everything in Basic', 'Full e-commerce', 'MoMo integration', 'Up to 50 products', 'Order management', '3 months support'],
-    featured: true,
-  },
-]
-
-function HomeInner() {
-  const [modal, setModal] = useState<Modal>(() =>
-    typeof window !== 'undefined'
-      ? (new URLSearchParams(window.location.search).get('modal') as Modal) ?? null
-      : null
-  )
-  const [openService, setOpenService] = useState<OpenService>(null)
-
-  useEffect(() => {
-    const onPop = () => {
-      const params = new URLSearchParams(window.location.search)
-      setModal((params.get('modal') as Modal) ?? null)
-    }
-    window.addEventListener('popstate', onPop)
-    return () => window.removeEventListener('popstate', onPop)
-  }, [])
-
-  function openModal(m: Modal) {
-    setModal(m)
-    const url = m ? `/?modal=${m}` : '/'
-    window.history.pushState({}, '', url)
-  }
-
+export default function Home() {
   return (
-    <>
-      <div className="h-[100dvh] bg-[#0a0a0a] overflow-hidden flex flex-col">
+    <div className="h-[100dvh] bg-[#0a0a0a] overflow-hidden flex flex-col">
 
-        {/* Header */}
-        <header className="flex items-center justify-between px-6 py-5 shrink-0">
-          <svg width="160" height="48" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="30" r="3" fill="#c4a747"/>
-            <circle cx="35" cy="20" r="3" fill="#c4a747"/>
-            <circle cx="35" cy="40" r="3" fill="#c4a747"/>
-            <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
-            <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
-            <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
-            <text x="50" y="35" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="700" fill="#aaaaaa">Amdeli</text>
-            <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#999999" letterSpacing="1">WEB SOLUTIONS</text>
-          </svg>
-          <Link href="/about" className="text-[9px] font-mono text-[#555] hover:text-[#999] transition-colors tracking-[0.2em] uppercase">
-            About Us
-          </Link>
-        </header>
+      {/* Header */}
+      <header className="flex items-center justify-between px-6 py-5 shrink-0">
+        <svg width="160" height="48" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="30" r="3" fill="#c4a747"/>
+          <circle cx="35" cy="20" r="3" fill="#c4a747"/>
+          <circle cx="35" cy="40" r="3" fill="#c4a747"/>
+          <line x1="20" y1="30" x2="35" y2="20" stroke="#c4a747" strokeWidth="1.5"/>
+          <line x1="20" y1="30" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
+          <line x1="35" y1="20" x2="35" y2="40" stroke="#c4a747" strokeWidth="1.5"/>
+          <text x="50" y="35" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="400" fill="#aaaaaa">Amdeli</text>
+          <text x="50" y="48" fontFamily="Inter, sans-serif" fontSize="9" fill="#999999" letterSpacing="1">WEB SOLUTIONS</text>
+        </svg>
+        <Link href="/about" className="text-[9px] font-mono text-[#555] hover:text-[#999] transition-colors tracking-[0.2em] uppercase">
+          About Us
+        </Link>
+      </header>
 
-        {/* Grid */}
-        <div className="flex-1 grid grid-rows-[2fr_repeat(4,1fr)] md:grid-cols-[1fr_380px] md:grid-rows-[repeat(4,1fr)] min-h-0">
+      {/* Grid */}
+      <div className="flex-1 grid grid-rows-[2fr_repeat(4,1fr)] md:grid-cols-[1fr_380px] md:grid-rows-[repeat(4,1fr)] min-h-0">
 
-          {/* ① Hero image — promotional text */}
-          <div className="md:row-span-5 relative overflow-hidden border-t border-[#1a1a1a]">
-            <img
-              src="https://picsum.photos/seed/accrawork/900/700"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-35"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/95 via-[#0a0a0a]/30 to-[#0a0a0a]/10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/40 to-transparent" />
+        {/* ① Hero */}
+        <div className="md:row-span-4 relative overflow-hidden border-t border-[#1a1a1a]">
+          <img
+            src="https://picsum.photos/seed/accrawork/900/700"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/95 via-[#0a0a0a]/30 to-[#0a0a0a]/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/40 to-transparent" />
+        </div>
 
+        {/* ② Portfolio */}
+        <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2 overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+          <div className="shrink-0 mr-4">
+            <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase">Portfolio</div>
           </div>
-
-          {/* ② Project thumbnails */}
-          <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2 overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-            <div className="shrink-0 mr-4">
-              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase">Portfolio</div>
-            </div>
-            <div className="flex items-center gap-3 overflow-x-auto scrollbar-none flex-1 h-full py-2.5 snap-x snap-mandatory">
-              {projects.map((p, i) => (
-                <a
-                  key={i}
-                  href={p.href}
-                  target={p.href.startsWith('http') ? '_blank' : undefined}
-                  rel={p.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  title={p.title}
-                  className="snap-start shrink-0 w-[22vw] md:w-14 h-full max-h-16 relative overflow-hidden border border-[#222] hover:border-[#c4a747]/50 transition-colors group/t"
-                >
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover opacity-50 group-hover/t:opacity-85 transition-opacity duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 px-2 pb-1.5">
-                    <div className="text-[7px] text-white/30 group-hover/t:text-white/50 transition-colors truncate leading-tight">{p.title}</div>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <FiArrowUpRight size={15} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0 ml-3" />
+          <div className="flex items-center gap-3 overflow-x-auto scrollbar-none flex-1 h-full py-2.5 snap-x snap-mandatory">
+            {projects.map((p) => (
+              <a
+                key={p.href}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={p.title}
+                className="snap-start shrink-0 w-[22vw] md:w-14 h-full max-h-16 relative overflow-hidden border border-[#222] hover:border-[#c4a747]/50 transition-colors group/t"
+              >
+                <img src={p.image} alt={p.title} className="w-full h-full object-cover opacity-50 group-hover/t:opacity-85 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 px-2 pb-1.5">
+                  <div className="text-[7px] text-white/30 group-hover/t:text-white/50 transition-colors truncate leading-tight">{p.title}</div>
+                </div>
+              </a>
+            ))}
           </div>
+          <FiArrowUpRight size={15} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0 ml-3" />
+        </div>
 
-          {/* ③ Services */}
-          <button
-            onClick={() => openModal('services')}
-            className="relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] transition-colors text-left overflow-hidden md:col-start-2"
-          >
-            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-            <div>
-              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Services</div>
-              <div className="text-xs text-[#666] group-hover:text-[#999] transition-colors font-light">
-                Websites · Stores · Marketing
-              </div>
+        {/* ③ Services */}
+        <Link
+          href="/services"
+          className="relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] transition-colors overflow-hidden md:col-start-2"
+        >
+          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+          <div>
+            <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Services</div>
+            <div className="text-xs text-[#666] group-hover:text-[#999] transition-colors font-light">
+              Websites · Stores · Marketing
             </div>
-            <FiArrowUpRight size={15} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
-          </button>
-
-          {/* ④ Pricing */}
-          <button
-            onClick={() => openModal('pricing')}
-            className="relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] transition-colors text-left overflow-hidden md:col-start-2"
-          >
-            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-            <div>
-              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Pricing</div>
-              <div className="text-xs text-[#666] group-hover:text-[#999] transition-colors font-light">
-                From GH₵1,200
-              </div>
-            </div>
-            <FiArrowUpRight size={15} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
-          </button>
-
-          {/* ⑤ Contact */}
-          <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2">
-            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-            <div>
-              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Contact</div>
-              <a href="tel:0540484052" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">
-                0540 484 052
-              </a>
-              <a href="mailto:hello@amdeli.gh" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">
-                hello@amdeli.gh
-              </a>
-              <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">
-                WhatsApp
-              </a>
-            </div>
-            <FiArrowUpRight size={13} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
           </div>
+          <FiArrowUpRight size={15} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
+        </Link>
 
+        {/* ④ Pricing */}
+        <Link
+          href="/pricing"
+          className="relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] transition-colors overflow-hidden md:col-start-2"
+        >
+          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+          <div>
+            <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Pricing</div>
+            <div className="text-xs text-[#666] group-hover:text-[#999] transition-colors font-light">
+              From GH₵1,200
+            </div>
+          </div>
+          <FiArrowUpRight size={15} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
+        </Link>
+
+        {/* ⑤ Contact */}
+        <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2">
+          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+          <div>
+            <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Contact</div>
+            <a href="tel:0540484052" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">0540 484 052</a>
+            <a href="mailto:hello@amdeli.gh" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">hello@amdeli.gh</a>
+            <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">WhatsApp</a>
+          </div>
+          <FiArrowUpRight size={13} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
         </div>
 
       </div>
-
-      {/* ── Modals ─────────────────────────────────────────────────────────── */}
-      <AnimatePresence>
-        {modal && (
-          <>
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => openModal(null)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
-            />
-
-            <motion.div
-              key="panel"
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 z-50 bg-[#0e0e0e] border-t border-[#1f1f1f] max-h-[85vh] overflow-y-auto"
-            >
-              <div className="flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a] sticky top-0 bg-[#0e0e0e]">
-                <span className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase">
-                  {modal === 'services' ? 'Services' : 'Pricing'}
-                </span>
-                <button onClick={() => openModal(null)} className="text-[#555] hover:text-[#bbb] transition-colors p-1">
-                  <FiX size={18} />
-                </button>
-              </div>
-
-              {modal === 'services' && (
-                <div className="divide-y divide-[#111]">
-                  {services.map((s, i) => {
-                    const isOpen = openService === i
-                    return (
-                      <div key={i}>
-                        <button
-                          onClick={() => setOpenService(isOpen ? null : i)}
-                          className="w-full flex items-center justify-between px-6 py-4 group hover:bg-white/[0.01] transition-colors text-left"
-                        >
-                          <span className="text-xs font-light tracking-wide text-[#999]">
-                            {s.title}
-                          </span>
-                          <span className={`transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : 'text-[#2a2a2a]'}`}>
-                            <FiArrowUpRight size={12} />
-                          </span>
-                        </button>
-
-                        <AnimatePresence>
-                          {isOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.18 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="px-6 pb-4">
-                                <p className="text-[10px] text-[#666] font-light leading-relaxed tracking-wide">
-                                  {s.tags.join(' · ')}
-                                </p>
-                                <a
-                                  href={s.href}
-                                  className="inline-flex items-center gap-1 mt-2 text-[9px] text-[#333] hover:text-[#666] transition-colors tracking-widest uppercase"
-                                >
-                                  Details <FiArrowUpRight size={9} />
-                                </a>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )
-                  })}
-                  <div className="px-6 py-5">
-                    <a
-                      href="tel:0540484052"
-                      onClick={() => openModal(null)}
-                      className="block w-full py-3.5 text-center text-xs font-light tracking-widest uppercase bg-[#c4a747] text-black hover:bg-[#d4b757] transition-colors"
-                    >
-                      Discuss your project
-                    </a>
-                  </div>
-                </div>
-              )}
-
-              {modal === 'pricing' && (
-                <div className="divide-y divide-[#111]">
-                  {plans.map((p, i) => (
-                    <div key={i} className="px-6 py-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <div className="text-[8px] font-mono text-[#2a2a2a] tracking-[0.25em] uppercase mb-2">{p.name}</div>
-                          <div className="text-xs font-light text-[#999] tracking-wide">{p.price}</div>
-                        </div>
-                        <div className="text-[8px] font-mono text-[#222] tracking-wider uppercase pt-0.5">{p.note}</div>
-                      </div>
-                      <ul className="space-y-1.5 mb-5">
-                        {p.features.map((f, j) => (
-                          <li key={j} className="flex items-start gap-2">
-                            <span className="text-[#252525] text-[10px] mt-0.5 shrink-0">—</span>
-                            <span className="text-[10px] text-[#666] font-light leading-relaxed">{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <a
-                        href="tel:0540484052"
-                        onClick={() => openModal(null)}
-                        className="block w-full py-3 text-center text-[10px] font-light tracking-widest uppercase border border-[#1f1f1f] text-[#555] hover:border-[#c4a747]/30 hover:text-[#666] transition-colors"
-                      >
-                        Get started
-                      </a>
-                    </div>
-                  ))}
-                  <div className="px-6 py-4">
-                    <p className="text-[9px] text-[#252525] font-mono tracking-wide">MoMo · Bank transfer · Cash accepted</p>
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+    </div>
   )
-}
-
-const HomeNoSSR = dynamic(() => Promise.resolve(HomeInner), { ssr: false })
-
-export default function Home() {
-  return <HomeNoSSR />
 }
