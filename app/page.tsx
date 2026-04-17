@@ -271,15 +271,23 @@ export default function Home() {
         </button>
 
         {/* ⑤ Contact */}
-        <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2">
+        <div className="relative group border-t border-[#1a1a1a] flex flex-col justify-center px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2">
           <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
-          <div>
-            <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1">Contact</div>
-            <a href="tel:0540484052" className="block text-[10px] text-[#aaa] font-mono leading-snug">0540 484 052</a>
-            <a href="mailto:hello@amdeli.gh" className="block text-[10px] text-[#aaa] font-mono leading-snug">hello@amdeli.gh</a>
-            <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-[10px] text-[#aaa] font-mono leading-snug">WhatsApp</a>
+          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Contact</div>
+          <div className="flex items-center justify-between gap-2">
+            <a href="tel:0540484052" className="flex flex-col items-start gap-0.5 group/c">
+              <span className="text-[7px] font-mono text-[#555] tracking-[0.2em] uppercase">Call</span>
+              <span className="text-[10px] text-[#aaa] font-mono">0540 484 052</span>
+            </a>
+            <a href="mailto:hello@amdeli.gh" className="flex flex-col items-start gap-0.5 group/c">
+              <span className="text-[7px] font-mono text-[#555] tracking-[0.2em] uppercase">Email</span>
+              <span className="text-[10px] text-[#aaa] font-mono">hello@amdeli.gh</span>
+            </a>
+            <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-0.5 group/c">
+              <span className="text-[7px] font-mono text-[#555] tracking-[0.2em] uppercase">WhatsApp</span>
+              <span className="text-[10px] text-[#aaa] font-mono">+233 540 484 052</span>
+            </a>
           </div>
-          <FiArrowUpRight size={13} className="text-[#2a2a2a] group-hover:text-[#c4a747] transition-colors shrink-0" />
         </div>
 
       </div>
