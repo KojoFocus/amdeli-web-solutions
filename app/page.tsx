@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-screen bg-[#0a0a0a] overflow-hidden flex flex-col font-sans font-light text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="h-[100dvh] bg-[#0a0a0a] overflow-hidden flex flex-col font-sans font-light text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
 
         {/* Header */}
         <header className="flex items-center justify-between px-6 py-5 shrink-0">
@@ -172,14 +172,14 @@ export default function Home() {
           <div className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2">
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#c4a747] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
             <div>
-              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1.5">Contact</div>
-              <a href="tel:0540484052" className="block text-xs text-[#666] hover:text-[#999] transition-colors font-mono">
+              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1">Contact</div>
+              <a href="tel:0540484052" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">
                 0540 484 052
               </a>
-              <a href="mailto:hello@amdeli.gh" className="block text-xs text-[#666] hover:text-[#999] transition-colors font-mono">
+              <a href="mailto:hello@amdeli.gh" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">
                 hello@amdeli.gh
               </a>
-              <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-xs text-[#666] hover:text-[#999] transition-colors font-mono">
+              <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer" className="block text-[10px] text-[#666] hover:text-[#999] transition-colors font-mono leading-snug">
                 WhatsApp
               </a>
             </div>

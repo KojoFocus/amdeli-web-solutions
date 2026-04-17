@@ -16,7 +16,7 @@ const services: Record<string, {
     price: 'GH₵1,200',
     priceNote: 'One-time payment',
     includes: [
-      'Custom domain (e.g. yourbusiness.com)',
+      'Domain connection (e.g. yourbusiness.com)',
       'Business email (you@yourbusiness.com)',
       '5 professionally designed pages',
       'Mobile-ready — works on every phone',
@@ -24,11 +24,12 @@ const services: Record<string, {
       'Contact form',
       'Free SSL certificate',
       '1 month free support after launch',
+      'Full source code & complete ownership',
     ],
     details: [
       {
         heading: 'Custom Domain & Email',
-        body: 'We register your domain and set up a professional business email so you look credible from day one.',
+        body: 'You register your domain and we connect everything — including a professional business email so you look credible from day one.',
       },
       {
         heading: 'Google SEO',
@@ -37,6 +38,10 @@ const services: Record<string, {
       {
         heading: 'Mobile-First',
         body: 'Built to look and work perfectly on phones first — because that\'s where your customers are.',
+      },
+      {
+        heading: 'Complete Ownership',
+        body: 'You own everything. We hand over the full source code, packaged so any developer can pick it up and continue the work — no lock-in.',
       },
     ],
   },
@@ -56,6 +61,7 @@ const services: Record<string, {
       'Customer accounts',
       'Up to 50 products',
       '3 months free support after launch',
+      'Full source code & complete ownership',
     ],
     details: [
       {
@@ -138,6 +144,7 @@ const services: Record<string, {
       'Database design',
       'Scalable architecture',
       'Ongoing support',
+      'Full source code & complete ownership',
     ],
     details: [
       {
