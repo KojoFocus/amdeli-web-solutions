@@ -157,6 +157,9 @@ export default function Home() {
 
       </div>
 
+      {/* Backdrop */}
+      <div className={`fixed inset-0 z-40 bg-[#141414] transition-opacity duration-150 ${modal ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} />
+
       {/* Slide-up Modal */}
       <div
         className={`fixed inset-0 z-50 bg-[#141414] flex flex-col transition-transform duration-300 ease-out ${
