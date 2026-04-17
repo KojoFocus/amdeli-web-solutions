@@ -68,14 +68,12 @@ const plans = [
 ]
 
 function HomeInner() {
-  const [modal, setModal] = useState<Modal>(null)
+  const [modal, setModal] = useState<Modal>(() =>
+    typeof window !== 'undefined'
+      ? (new URLSearchParams(window.location.search).get('modal') as Modal) ?? null
+      : null
+  )
   const [openService, setOpenService] = useState<OpenService>(null)
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const m = params.get('modal') as Modal
-    if (m) setModal(m)
-  }, [])
 
   useEffect(() => {
     const onPop = () => {
