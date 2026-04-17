@@ -193,13 +193,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   if (!service) notFound()
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col font-light text-[#777]" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col font-light text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
 
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a]">
         <Link
           href="/"
-          className="flex items-center gap-2 text-[#3a3a3a] hover:text-[#777] transition-colors text-sm"
+          className="flex items-center gap-2 text-[#555] hover:text-[#999] transition-colors text-sm"
         >
           <FiArrowLeft size={14} />
           <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Back</span>
@@ -220,13 +220,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         {/* Title */}
         <div className="px-6 py-10">
-          <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-5">
+          <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-5">
             Service
           </div>
-          <h1 className="text-sm font-light font-sans text-[#777] leading-snug mb-3 tracking-wide">
+          <h1 className="text-sm font-light font-sans text-[#999] leading-snug mb-3 tracking-wide">
             {service.title}
           </h1>
-          <p className="text-[10px] text-[#444] font-light leading-relaxed tracking-wide">
+          <p className="text-[10px] text-[#666] font-light leading-relaxed tracking-wide">
             {service.tagline}
           </p>
         </div>
@@ -234,20 +234,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {/* Price */}
         {service.price && (
           <div className="px-6 py-6">
-            <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-3">Pricing</div>
-            <div className="text-sm font-light text-[#777] tracking-wide">{service.price}</div>
-            <div className="text-[8px] text-[#3a3a3a] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
+            <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-3">Pricing</div>
+            <div className="text-sm font-light text-[#999] tracking-wide">{service.price}</div>
+            <div className="text-[8px] text-[#555] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
           </div>
         )}
 
         {/* Included */}
         <div className="px-6 py-6">
-          <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-4">Included</div>
+          <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-4">Included</div>
           <ul className="space-y-2">
             {service.includes.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
-                <span className="text-[#3a3a3a] text-xs mt-0.5 shrink-0">—</span>
-                <span className="text-[10px] text-[#444] font-light leading-relaxed">{item}</span>
+                <span className="text-[#555] text-xs mt-0.5 shrink-0">—</span>
+                <span className="text-[10px] text-[#666] font-light leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -257,8 +257,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="px-6 py-6 space-y-5">
           {service.details.map((d, i) => (
             <div key={i}>
-              <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
-              <p className="text-[10px] text-[#444] font-light leading-relaxed">{d.body}</p>
+              <div className="text-[8px] font-mono text-[#555] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
+              <p className="text-[10px] text-[#666] font-light leading-relaxed">{d.body}</p>
             </div>
           ))}
         </div>
