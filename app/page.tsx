@@ -36,7 +36,7 @@ export default function Home() {
         {/* ① Hero */}
         <div className="md:row-span-4 relative overflow-hidden border-t border-[#1a1a1a]">
           <img
-            src="https://picsum.photos/seed/accrawork/900/700"
+            src="/images/hero-image.png"
             alt=""
             className="absolute inset-0 w-full h-full object-cover opacity-55"
           />
