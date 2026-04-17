@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { FiArrowUpRight, FiX } from 'react-icons/fi'
@@ -69,13 +68,28 @@ const plans = [
 ]
 
 function HomeInner() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const modal = (searchParams.get('modal') as Modal) ?? null
+  const [modal, setModal] = useState<Modal>(null)
   const [openService, setOpenService] = useState<OpenService>(null)
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const m = params.get('modal') as Modal
+    if (m) setModal(m)
+  }, [])
+
+  useEffect(() => {
+    const onPop = () => {
+      const params = new URLSearchParams(window.location.search)
+      setModal((params.get('modal') as Modal) ?? null)
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
   function openModal(m: Modal) {
-    router.push(m ? `/?modal=${m}` : '/', { scroll: false })
+    setModal(m)
+    const url = m ? `/?modal=${m}` : '/'
+    window.history.pushState({}, '', url)
   }
 
   return (
@@ -324,7 +338,6 @@ function HomeInner() {
   )
 }
 
-import { Suspense } from 'react'
 export default function Home() {
-  return <Suspense><HomeInner /></Suspense>
+  return <HomeInner />
 }
