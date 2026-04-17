@@ -92,7 +92,7 @@ export default function Home() {
         </header>
 
         {/* Grid */}
-        <div className="flex-1 grid grid-rows-[2fr_1fr_1fr_1fr_1fr] md:grid-cols-[1fr_380px] md:grid-rows-[1fr_1fr_1fr_1fr_1fr] min-h-0">
+        <div className="flex-1 grid grid-rows-[2fr_repeat(5,1fr)] md:grid-cols-[1fr_380px] md:grid-rows-[repeat(5,1fr)] min-h-0">
 
           {/* ① Hero image — promotional text */}
           <div className="md:row-span-5 relative overflow-hidden border-t border-[#1a1a1a]">
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="shrink-0 mr-4">
               <div className="text-[8px] font-mono text-[#3a3a3a] tracking-[0.25em] uppercase">Portfolio</div>
             </div>
-            <div className="flex items-center gap-4 overflow-x-auto scrollbar-none flex-1 h-full py-3 snap-x snap-mandatory">
+            <div className="flex items-center gap-3 overflow-x-auto scrollbar-none flex-1 h-full py-2.5 snap-x snap-mandatory">
               {projects.map((p, i) => (
                 <a
                   key={i}
@@ -120,7 +120,7 @@ export default function Home() {
                   target={p.href.startsWith('http') ? '_blank' : undefined}
                   rel={p.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   title={p.title}
-                  className="snap-start shrink-0 w-[25vw] md:w-16 h-full relative overflow-hidden border border-[#222] hover:border-[#c4a747]/50 transition-colors group/t"
+                  className="snap-start shrink-0 w-[22vw] md:w-14 h-full max-h-16 relative overflow-hidden border border-[#222] hover:border-[#c4a747]/50 transition-colors group/t"
                 >
                   <img
                     src={p.image}
@@ -187,7 +187,7 @@ export default function Home() {
             href="https://wa.me/233540484052"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2 min-h-[56px] md:min-h-0"
+            className="relative group border-t border-[#1a1a1a] flex items-center justify-between px-7 md:px-8 hover:bg-white/[0.02] transition-colors md:col-start-2"
           >
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#25D366]/50 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
             <div className="flex items-center gap-2.5">
