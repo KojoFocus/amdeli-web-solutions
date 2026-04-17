@@ -1,8 +1,7 @@
 'use client'
 
-export const dynamic = 'force-dynamic'
-
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { FiArrowUpRight, FiX } from 'react-icons/fi'
@@ -338,6 +337,8 @@ function HomeInner() {
   )
 }
 
+const HomeNoSSR = dynamic(() => Promise.resolve(HomeInner), { ssr: false })
+
 export default function Home() {
-  return <HomeInner />
+  return <HomeNoSSR />
 }
