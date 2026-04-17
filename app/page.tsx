@@ -157,12 +157,9 @@ export default function Home() {
 
       </div>
 
-      {/* Dim overlay */}
-      <div className={`fixed inset-0 z-40 bg-black/60 transition-opacity duration-300 ${modal ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} />
-
-      {/* Pull-up sheet */}
+      {/* Slide-up modal */}
       <div
-        className={`fixed inset-x-0 bottom-0 top-16 z-50 bg-[#141414] flex flex-col rounded-t-2xl transition-transform duration-300 ease-out ${
+        className={`fixed inset-0 z-50 bg-[#141414] flex flex-col transition-transform duration-300 ease-out ${
           modal ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
