@@ -231,7 +231,7 @@ export default function Home() {
                           onClick={() => setOpenService(isOpen ? null : i)}
                           className="w-full flex items-center justify-between px-6 py-4 group hover:bg-white/[0.01] transition-colors text-left"
                         >
-                          <span className="text-sm font-sans font-light tracking-wide text-[#999]">
+                          <span className="text-sm font-light tracking-wide text-[#999]" style={{ fontFamily: 'Inter, sans-serif' }}>
                             {s.title}
                           </span>
                           <span className={`transition-all duration-200 ${isOpen ? 'rotate-45 text-[#c4a747]' : 'text-[#2a2a2a]'}`}>
