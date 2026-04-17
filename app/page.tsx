@@ -186,28 +186,16 @@ export default function Home() {
     setModal(name)
   }
 
-  const openService = (slug: string) => {
-    history.pushState(null, '')
-    setActiveService(slug)
-  }
-
   const handleClose = () => {
+    setActiveService(null)
     history.back()
   }
 
   useEffect(() => {
-    const handlePop = () => {
-      if (activeService) {
-        setActiveService(null)
-      } else {
-        setModal(null)
-      }
-    }
+    const handlePop = () => setModal(null)
     window.addEventListener('popstate', handlePop)
     return () => window.removeEventListener('popstate', handlePop)
-  }, [activeService])
-
-  const detail = activeService ? serviceDetails[activeService] : null
+  }, [])
 
   return (
     <div className="h-[100dvh] bg-[#141414] overflow-hidden flex flex-col">
@@ -309,10 +297,10 @@ export default function Home() {
         </header>
 
         {/* Modal body — services list + detail panels */}
-        <div className="flex-1 overflow-hidden relative">
+        <div className="flex-1 overflow-hidden flex flex-col">
 
-          {/* Services list */}
-          <div className={`absolute inset-0 overflow-y-auto transition-transform duration-300 ease-out ${activeService ? '-translate-x-full' : 'translate-x-0'}`}>
+          {/* Modal content */}
+          <div className="flex-1 overflow-y-auto h-full">
             {modal === 'services' && (
               <div className="max-w-xl mx-auto w-full">
                 <div className="px-6 py-8">
@@ -321,21 +309,30 @@ export default function Home() {
                 <div className="divide-y divide-[#111]">
                   {services.map((s) => {
                     const d = serviceDetails[s.slug]
+                    const expanded = activeService === s.slug
                     return (
-                      <div key={s.slug} className="px-6 py-7">
-                        <div className="flex items-start justify-between mb-2">
+                      <div key={s.slug} className="px-6 py-6">
+                        <div className="flex items-start justify-between mb-1.5">
                           <div className="text-xs font-light text-[#aaa] tracking-wide">{s.title}</div>
                           {d.price && <div className="text-[9px] font-mono text-[#c4a747] tracking-wide shrink-0 ml-4">{d.price}</div>}
                         </div>
-                        <p className="text-[10px] text-[#666] font-light leading-relaxed mb-5">{d.tagline}</p>
-                        <div className="space-y-4">
-                          {d.details.map((item, i) => (
-                            <div key={i}>
-                              <div className="text-[8px] font-mono text-[#555] tracking-[0.2em] uppercase mb-1">{item.heading}</div>
-                              <p className="text-[10px] text-[#666] font-light leading-relaxed">{item.body}</p>
-                            </div>
-                          ))}
-                        </div>
+                        <p className="text-[10px] text-[#666] font-light leading-relaxed mb-3">{d.tagline}</p>
+                        <button
+                          onClick={() => setActiveService(expanded ? null : s.slug)}
+                          className="text-[8px] font-mono text-[#555] tracking-[0.2em] uppercase hover:text-[#aaa] transition-colors"
+                        >
+                          {expanded ? 'Close' : 'Details'}
+                        </button>
+                        {expanded && (
+                          <div className="mt-4 space-y-4 border-t border-[#111] pt-4">
+                            {d.details.map((item, i) => (
+                              <div key={i}>
+                                <div className="text-[8px] font-mono text-[#555] tracking-[0.2em] uppercase mb-1">{item.heading}</div>
+                                <p className="text-[10px] text-[#666] font-light leading-relaxed">{item.body}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     )
                   })}
@@ -373,7 +370,7 @@ export default function Home() {
                           </li>
                         ))}
                       </ul>
-                      <button onClick={() => openService(p.slug)}
+                      <button onClick={() => { openModal('services'); setActiveService(p.slug) }}
                         className="w-full flex items-center justify-between px-5 py-3 border border-[#1a1a1a] text-[#444] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#aaa] transition-colors">
                         <span>View details</span>
                         <FiArrowUpRight size={10} />
@@ -388,57 +385,6 @@ export default function Home() {
                   <a href="tel:0540484052"
                     className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors">
                     <span>Get started</span>
-                    <FiArrowUpRight size={12} />
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Service detail panel */}
-          <div className={`absolute inset-0 overflow-y-auto transition-transform duration-300 ease-out ${activeService ? 'translate-x-0' : 'translate-x-full'}`}>
-            {detail && (
-              <div className="max-w-xl mx-auto w-full divide-y divide-[#111]">
-                <div className="px-6 py-10">
-                  <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-5">Service</div>
-                  <h1 className="text-sm font-light text-[#aaa] leading-snug mb-3 tracking-wide">{detail.title}</h1>
-                  <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">{detail.tagline}</p>
-                </div>
-                {detail.price && (
-                  <div className="px-6 py-6">
-                    <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Pricing</div>
-                    <div className="text-sm font-light text-[#aaa] tracking-wide">{detail.price}</div>
-                    <div className="text-[8px] text-[#777] font-mono mt-1 tracking-[0.2em] uppercase">{detail.priceNote}</div>
-                  </div>
-                )}
-                <div className="px-6 py-6">
-                  <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-4">Included</div>
-                  <ul className="space-y-2">
-                    {detail.includes.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <span className="text-[#777] text-xs mt-0.5 shrink-0">—</span>
-                        <span className="text-[10px] text-[#aaa] font-light leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="px-6 py-6 space-y-5">
-                  {detail.details.map((d, i) => (
-                    <div key={i}>
-                      <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
-                      <p className="text-[10px] text-[#aaa] font-light leading-relaxed">{d.body}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="px-6 py-6 flex flex-col gap-2">
-                  <a href="tel:0540484052"
-                    className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors">
-                    <span>Call — 0540 484 052</span>
-                    <FiArrowUpRight size={12} />
-                  </a>
-                  <a href="https://wa.me/233540484052" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#2a2a2a] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#777] transition-colors">
-                    <span>WhatsApp</span>
                     <FiArrowUpRight size={12} />
                   </a>
                 </div>
