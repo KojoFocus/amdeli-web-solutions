@@ -1,41 +1,37 @@
 import Link from 'next/link'
 import { FiArrowUpRight } from 'react-icons/fi'
 import BackButton from '@/app/components/BackButton'
+import { useState, useEffect } from 'react'
 
-const services = [
-  {
-    title: 'Basic Website',
-    href: '/services/basic-website',
-    tags: ['Custom domain', 'Business email', 'Google SEO', 'Mobile-ready', 'Contact form'],
-  },
-  {
-    title: 'Online Store',
-    href: '/services/online-store',
-    tags: ['Product dashboard', 'Order tracking', 'Paystack', 'MoMo', 'Inventory management'],
-  },
-  {
-    title: 'Digital Marketing',
-    href: '/services/digital-marketing',
-    tags: ['Google SEO', 'Google Business', 'Social media setup', 'Monthly reports'],
-  },
-  {
-    title: 'Maintenance',
-    href: '/services/maintenance',
-    tags: ['Monthly updates', 'Security monitoring', 'Backups', 'Content edits'],
-  },
-  {
-    title: 'Custom Development',
-    href: '/services/custom-development',
-    tags: ['Web apps', 'Booking systems', 'Portals', 'API integrations'],
-  },
-  {
-    title: 'Business Consulting',
-    href: '/services/consulting',
-    tags: ['Digital strategy', 'Competitor research', 'Growth roadmap'],
-  },
-]
+interface Service {
+  id: number
+  title: string
+  description?: string
+  tags: string
+  href: string
+}
 
 export default function ServicesPage() {
+  const [services, setServices] = useState<Service[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await fetch('/api/services')
+        if (res.ok) {
+          const data = await res.json()
+          setServices(data)
+        }
+      } catch (error) {
+        console.error('Failed to fetch services:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchServices()
+  }, [])
   return (
     <div className="min-h-screen bg-[#141414] flex flex-col">
 
@@ -69,7 +65,9 @@ export default function ServicesPage() {
             >
               <div>
                 <div className="text-base font-light text-[#f0f0f0] tracking-wide mb-1.5">{s.title}</div>
-                <div className="text-sm text-[#b3b3b3] font-light leading-relaxed">{s.tags.join(' · ')}</div>
+                <div className="text-sm text-[#b3b3b3] font-light leading-relaxed">
+                  {s.tags.split(',').map((tag, i) => tag.trim()).join(' · ')}
+                </div>
               </div>
               <FiArrowUpRight size={14} className="text-[#8f8f8f] group-hover:text-[#c4a747] shrink-0 ml-4" />
             </Link>

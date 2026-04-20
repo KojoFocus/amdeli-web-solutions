@@ -1,16 +1,56 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FiArrowUpRight } from 'react-icons/fi'
 
-const projects = [
-  { title: 'Focus Honey', image: '/images/focushoney.png', href: 'https://focushoney.com' },
-  { title: 'Pimpinis', image: '/images/pimpinis1.png', href: 'https://pimpinis.vercel.app' },
-  { title: 'Folio', image: '/images/folio.png', href: 'https://folio-1cvo.vercel.app/' },
-  { title: 'Juro', image: '/images/juro.png', href: 'https://juro-one.vercel.app/' },
-  { title: 'Born Seen', image: '/images/bornseen.png', href: 'https://born-seen.vercel.app/' },
-]
+interface Portfolio {
+  id: number
+  title: string
+  image: string
+  href: string
+  description?: string
+}
+
+interface HeroImage {
+  id: number
+  imageUrl: string
+  altText?: string
+}
 
 export default function Home() {
+  const [projects, setProjects] = useState<Portfolio[]>([])
+  const [heroImage, setHeroImage] = useState<HeroImage | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [portfolioRes, heroRes] = await Promise.all([
+          fetch('/api/portfolio'),
+          fetch('/api/hero')
+        ])
+
+        if (portfolioRes.ok) {
+          const data = await portfolioRes.json()
+          setProjects(data)
+        }
+
+        if (heroRes.ok) {
+          const data = await heroRes.json()
+          if (data) setHeroImage(data)
+        }
+      } catch (error) {
+        console.error('Failed to fetch data:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
+
   const panelRowClass =
     'relative group flex items-center justify-between px-7 md:px-8 border-t border-[#1a1a1a] hover:bg-white/[0.02] md:col-start-2 min-h-[88px] transition-colors duration-200'
   const accentBarClass =
@@ -19,6 +59,14 @@ export default function Home() {
   const valueClass = 'text-sm md:text-[15px] text-[#d0d0d0] group-hover:text-[#f0f0f0] font-light'
   const arrowClass =
     'text-[#7f7f7f] group-hover:text-[#c4a747] shrink-0 opacity-60 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-200'
+
+  if (loading) {
+    return (
+      <div className="h-[100dvh] bg-[#141414] flex items-center justify-center">
+        <div className="text-[#666]">Loading...</div>
+      </div>
+    )
+  }
 
   return (
     <div className="h-[100dvh] bg-[#141414] overflow-hidden flex flex-col">
@@ -40,7 +88,13 @@ export default function Home() {
 
       <div className="flex-1 grid grid-rows-[2fr_repeat(4,1fr)] md:grid-cols-[1fr_380px] md:grid-rows-[repeat(4,1fr)] min-h-0">
         <div className="md:row-span-4 relative overflow-hidden border-t border-[#1a1a1a]">
-          <Image src="/images/hero-image.png" alt="Amdeli web design showcase" fill priority className="absolute inset-0 w-full h-full object-cover opacity-55" />
+          <Image 
+            src={heroImage?.imageUrl || '/images/hero-image.png'} 
+            alt={heroImage?.altText || 'Amdeli web design showcase'} 
+            fill 
+            priority 
+            className="absolute inset-0 w-full h-full object-cover opacity-55" 
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/90 via-[#141414]/20 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#141414]/30 to-transparent" />
         </div>
