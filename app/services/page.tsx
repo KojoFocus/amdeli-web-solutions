@@ -57,7 +57,7 @@ export default function ServicesPage() {
 
       <div className="flex-1 max-w-xl mx-auto w-full">
         <div className="px-6 py-8">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-6">Services</div>
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-6">Services</div>
         </div>
 
         <div className="divide-y divide-[#111]">
@@ -65,13 +65,13 @@ export default function ServicesPage() {
             <Link
               key={s.href}
               href={s.href}
-              className="flex items-center justify-between px-6 py-5 hover:bg-white/[0.02] transition-colors group"
+              className="flex min-h-[72px] items-center justify-between px-6 py-5 hover:bg-white/[0.02] group"
             >
               <div>
-                <div className="text-xs font-light text-[#aaa] tracking-wide mb-1.5" style={{ fontFamily: 'Inter, sans-serif' }}>{s.title}</div>
-                <div className="text-[10px] text-[#666] font-light leading-relaxed">{s.tags.join(' · ')}</div>
+                <div className="text-base font-light text-[#f0f0f0] tracking-wide mb-1.5">{s.title}</div>
+                <div className="text-sm text-[#b3b3b3] font-light leading-relaxed">{s.tags.join(' · ')}</div>
               </div>
-              <FiArrowUpRight size={12} className="text-[#333] group-hover:text-[#c4a747] transition-colors shrink-0 ml-4" />
+              <FiArrowUpRight size={14} className="text-[#8f8f8f] group-hover:text-[#c4a747] shrink-0 ml-4" />
             </Link>
           ))}
         </div>
@@ -79,7 +79,7 @@ export default function ServicesPage() {
         <div className="px-6 py-6 border-t border-[#111]">
           <a
             href="tel:0540484052"
-            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
+            className="flex min-h-[44px] items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-xs font-medium tracking-widest uppercase hover:bg-[#d4b757]"
           >
             <span>Discuss your project</span>
             <FiArrowUpRight size={12} />

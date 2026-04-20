@@ -23,40 +23,40 @@ export default function AboutPage() {
         </Link>
       </header>
 
-      <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]">
+        <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]">
 
         {/* Intro */}
         <div className="px-6 py-10">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-5">About Us</div>
-          <h1 className="text-sm font-light text-[#aaa] leading-snug mb-4 tracking-wide">
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-5">About Us</div>
+          <h1 className="text-xl font-light text-[#f0f0f0] leading-snug mb-4 tracking-wide">
             We build digital tools for Ghanaian businesses.
           </h1>
-          <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">
+          <p className="text-sm text-[#d0d0d0] font-light leading-relaxed tracking-wide">
             Amdeli is a web solutions studio based in Accra. We work with small and growing businesses — helping them get online, sell products, and show up where their customers are looking.
           </p>
         </div>
 
         {/* What we believe */}
         <div className="px-6 py-8 space-y-5">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-4">What we believe</div>
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-4">What we believe</div>
           <div>
-            <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">Simple works</div>
-            <p className="text-[10px] text-[#aaa] font-light leading-relaxed">A clear, fast website beats a flashy one. We build what your customers actually need — nothing extra.</p>
+            <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-1.5">Simple works</div>
+            <p className="text-sm text-[#d0d0d0] font-light leading-relaxed">A clear, fast website beats a flashy one. We build what your customers actually need — nothing extra.</p>
           </div>
           <div>
-            <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">Mobile first</div>
-            <p className="text-[10px] text-[#aaa] font-light leading-relaxed">Most of your customers are on a phone. Everything we build works perfectly on mobile before anything else.</p>
+            <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-1.5">Mobile first</div>
+            <p className="text-sm text-[#d0d0d0] font-light leading-relaxed">Most of your customers are on a phone. Everything we build works perfectly on mobile before anything else.</p>
           </div>
           <div>
-            <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">Local knowledge</div>
-            <p className="text-[10px] text-[#aaa] font-light leading-relaxed">We understand the Ghanaian market — MoMo payments, slow connections, how people search locally. That shapes every decision we make.</p>
+            <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-1.5">Local knowledge</div>
+            <p className="text-sm text-[#d0d0d0] font-light leading-relaxed">We understand the Ghanaian market — MoMo payments, slow connections, how people search locally. That shapes every decision we make.</p>
           </div>
         </div>
 
         {/* Location */}
         <div className="px-6 py-6">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Where we are</div>
-          <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-3">Where we are</div>
+          <p className="text-sm text-[#d0d0d0] font-light leading-relaxed tracking-wide">
             Accra, Ghana — available across the country remotely.
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
         <div className="px-6 py-6 flex flex-col gap-2">
           <a
             href="tel:0540484052"
-            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
+            className="flex min-h-[44px] items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-xs font-medium tracking-widest uppercase hover:bg-[#d4b757]"
           >
             <span>Call — 0540 484 052</span>
             <FiArrowUpRight size={12} />
@@ -74,7 +74,7 @@ export default function AboutPage() {
             href="https://wa.me/233540484052"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#2a2a2a] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#777] transition-colors"
+            className="flex min-h-[44px] items-center justify-between px-5 py-3.5 border border-[#333] text-[#d0d0d0] text-xs font-medium tracking-widest uppercase hover:border-[#c4a747] hover:text-[#f0f0f0]"
           >
             <span>WhatsApp</span>
             <FiArrowUpRight size={12} />

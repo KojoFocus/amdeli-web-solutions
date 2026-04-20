@@ -41,8 +41,8 @@ export default function PricingPage() {
 
       <div className="flex-1 max-w-xl mx-auto w-full">
         <div className="px-6 py-8">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-2">Pricing</div>
-          <p className="text-[10px] text-[#777] font-light leading-relaxed">Custom projects are quoted on scope. Reach out for an estimate.</p>
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-2">Pricing</div>
+          <p className="text-sm text-[#d0d0d0] font-light leading-relaxed">Custom projects are quoted on scope. Reach out for an estimate.</p>
         </div>
 
         <div className="divide-y divide-[#111]">
@@ -50,22 +50,22 @@ export default function PricingPage() {
             <div key={p.name} className="px-6 py-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-2">{p.name}</div>
-                  <div className="text-xs font-light text-[#aaa] tracking-wide">{p.price}</div>
+                  <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-2">{p.name}</div>
+                  <div className="text-lg font-light text-[#f0f0f0] tracking-wide">{p.price}</div>
                 </div>
-                <div className="text-[8px] font-mono text-[#444] tracking-wider uppercase pt-0.5">{p.note}</div>
+                <div className="text-[11px] font-mono text-[#8f8f8f] tracking-wider uppercase pt-0.5">{p.note}</div>
               </div>
               <ul className="space-y-1.5 mb-5">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2">
-                    <span className="text-[#333] text-[10px] mt-0.5 shrink-0">—</span>
-                    <span className="text-[10px] text-[#777] font-light leading-relaxed">{f}</span>
+                    <span className="text-[#8f8f8f] text-sm mt-0.5 shrink-0">—</span>
+                    <span className="text-sm text-[#d0d0d0] font-light leading-relaxed">{f}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href={p.href}
-                className="flex items-center justify-between px-5 py-3 border border-[#1a1a1a] text-[#444] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#aaa] transition-colors"
+                className="flex min-h-[44px] items-center justify-between px-5 py-3 border border-[#333] text-[#d0d0d0] text-xs font-medium tracking-widest uppercase hover:border-[#c4a747] hover:text-[#f0f0f0]"
               >
                 <span>View details</span>
                 <FiArrowUpRight size={10} />
@@ -75,13 +75,13 @@ export default function PricingPage() {
         </div>
 
         <div className="px-6 py-4 border-t border-[#111]">
-          <p className="text-[9px] text-[#333] font-mono tracking-wide">MoMo · Bank transfer · Cash accepted</p>
+          <p className="text-xs text-[#b3b3b3] font-mono tracking-wide">MoMo · Bank transfer · Cash accepted</p>
         </div>
 
         <div className="px-6 py-6 border-t border-[#111]">
           <a
             href="tel:0540484052"
-            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
+            className="flex min-h-[44px] items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-xs font-medium tracking-widest uppercase hover:bg-[#d4b757]"
           >
             <span>Get started</span>
             <FiArrowUpRight size={12} />

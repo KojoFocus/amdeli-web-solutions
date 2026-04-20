@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="dark" />
       </head>
-      <body style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, background: '#141414', color: '#999' }}>
+      <body className="bg-[#141414] text-[#999]">
         {children}
       </body>
     </html>

@@ -192,7 +192,7 @@ const services: Record<string, {
 }
 
 export function generateStaticParams() {
-  return Object.keys(services).map(slug => ({ slug }))
+  return Object.keys(services).map((slug) => ({ slug }))
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -220,17 +220,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </Link>
       </header>
 
-      <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]" style={{ WebkitTextSizeAdjust: '100%' }}>
+      <div className="flex-1 max-w-xl mx-auto w-full divide-y divide-[#111]">
 
         {/* Title */}
         <div className="px-6 py-10">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-5">
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-5">
             Service
           </div>
-          <h1 className="text-sm font-light font-sans text-[#aaa] leading-snug mb-3 tracking-wide">
+          <h1 className="text-xl font-light font-sans text-[#f0f0f0] leading-snug mb-3 tracking-wide">
             {service.title}
           </h1>
-          <p className="text-[10px] text-[#aaa] font-light leading-relaxed tracking-wide">
+          <p className="text-sm text-[#d0d0d0] font-light leading-relaxed tracking-wide">
             {service.tagline}
           </p>
         </div>
@@ -238,20 +238,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {/* Price */}
         {service.price && (
           <div className="px-6 py-6">
-            <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-3">Pricing</div>
-            <div className="text-sm font-light text-[#aaa] tracking-wide">{service.price}</div>
-            <div className="text-[8px] text-[#777] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
+            <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-3">Pricing</div>
+            <div className="text-lg font-light text-[#f0f0f0] tracking-wide">{service.price}</div>
+            <div className="text-[11px] text-[#8f8f8f] font-mono mt-1 tracking-[0.2em] uppercase">{service.priceNote}</div>
           </div>
         )}
 
         {/* Included */}
         <div className="px-6 py-6">
-          <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-4">Included</div>
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-4">Included</div>
           <ul className="space-y-2">
             {service.includes.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
-                <span className="text-[#777] text-xs mt-0.5 shrink-0">—</span>
-                <span className="text-[10px] text-[#aaa] font-light leading-relaxed">{item}</span>
+                <span className="text-[#8f8f8f] text-sm mt-0.5 shrink-0">—</span>
+                <span className="text-sm text-[#d0d0d0] font-light leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -261,8 +261,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="px-6 py-6 space-y-5">
           {service.details.map((d, i) => (
             <div key={i}>
-              <div className="text-[8px] font-mono text-[#777] tracking-[0.25em] uppercase mb-1.5">{d.heading}</div>
-              <p className="text-[10px] text-[#aaa] font-light leading-relaxed">{d.body}</p>
+              <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-1.5">{d.heading}</div>
+              <p className="text-sm text-[#d0d0d0] font-light leading-relaxed">{d.body}</p>
             </div>
           ))}
         </div>
@@ -271,7 +271,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="px-6 py-6 flex flex-col gap-2">
           <a
             href="tel:0540484052"
-            className="flex items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-[10px] font-light tracking-widest uppercase hover:bg-[#d4b757] transition-colors"
+            className="flex min-h-[44px] items-center justify-between px-5 py-3.5 bg-[#c4a747] text-black text-xs font-medium tracking-widest uppercase hover:bg-[#d4b757]"
           >
             <span>Call — 0540 484 052</span>
             <FiArrowUpRight size={12} />
@@ -280,7 +280,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             href="https://wa.me/233540484052"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-5 py-3.5 border border-[#1a1a1a] text-[#2a2a2a] text-[10px] font-light tracking-widest uppercase hover:border-[#333] hover:text-[#777] transition-colors"
+            className="flex min-h-[44px] items-center justify-between px-5 py-3.5 border border-[#333] text-[#d0d0d0] text-xs font-medium tracking-widest uppercase hover:border-[#c4a747] hover:text-[#f0f0f0]"
           >
             <span>WhatsApp</span>
             <FiArrowUpRight size={12} />
