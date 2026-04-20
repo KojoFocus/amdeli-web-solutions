@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link'
 import { FiArrowUpRight } from 'react-icons/fi'
 import BackButton from '@/app/components/BackButton'
@@ -32,6 +34,7 @@ export default function ServicesPage() {
 
     fetchServices()
   }, [])
+
   return (
     <div className="min-h-screen bg-[#141414] flex flex-col">
 
@@ -53,25 +56,39 @@ export default function ServicesPage() {
 
       <div className="flex-1 max-w-xl mx-auto w-full">
         <div className="px-6 py-8">
-          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-6">Services</div>
+          <div className="text-[11px] font-mono text-[#b3b3b3] tracking-[0.2em] uppercase mb-6">
+            Services
+          </div>
         </div>
 
         <div className="divide-y divide-[#111]">
-          {services.map((s) => (
-            <Link
-              key={s.href}
-              href={s.href}
-              className="flex min-h-[72px] items-center justify-between px-6 py-5 hover:bg-white/[0.02] group"
-            >
-              <div>
-                <div className="text-base font-light text-[#f0f0f0] tracking-wide mb-1.5">{s.title}</div>
-                <div className="text-sm text-[#b3b3b3] font-light leading-relaxed">
-                  {s.tags.split(',').map((tag, i) => tag.trim()).join(' · ')}
+          {loading ? (
+            <div className="px-6 py-10 text-sm text-[#777]">
+              Loading services...
+            </div>
+          ) : (
+            services.map((s) => (
+              <Link
+                key={s.id}
+                href={s.href}
+                className="flex min-h-[72px] items-center justify-between px-6 py-5 hover:bg-white/[0.02] group"
+              >
+                <div>
+                  <div className="text-base font-light text-[#f0f0f0] tracking-wide mb-1.5">
+                    {s.title}
+                  </div>
+                  <div className="text-sm text-[#b3b3b3] font-light leading-relaxed">
+                    {s.tags.split(',').map((tag) => tag.trim()).join(' · ')}
+                  </div>
                 </div>
-              </div>
-              <FiArrowUpRight size={14} className="text-[#8f8f8f] group-hover:text-[#c4a747] shrink-0 ml-4" />
-            </Link>
-          ))}
+
+                <FiArrowUpRight
+                  size={14}
+                  className="text-[#8f8f8f] group-hover:text-[#c4a747] shrink-0 ml-4"
+                />
+              </Link>
+            ))
+          )}
         </div>
 
         <div className="px-6 py-6 border-t border-[#111]">
