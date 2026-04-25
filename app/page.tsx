@@ -23,7 +23,6 @@ const DEFAULT_PROJECTS: Portfolio[] = [
 
 export default function Home() {
   const [projects, setProjects] = useState<Portfolio[]>(DEFAULT_PROJECTS)
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetch('/api/portfolio')
@@ -40,14 +39,6 @@ export default function Home() {
   const valueClass = 'text-sm md:text-[15px] text-[#d0d0d0] group-hover:text-[#f0f0f0] font-light'
   const arrowClass =
     'text-[#7f7f7f] group-hover:text-[#c4a747] shrink-0 opacity-60 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-200'
-
-  if (loading) {
-    return (
-      <div className="h-[100dvh] bg-[#141414] flex items-center justify-center">
-        <div className="text-[#666]">Loading...</div>
-      </div>
-    )
-  }
 
   return (
     <div className="h-[100dvh] bg-[#141414] overflow-hidden flex flex-col">
@@ -69,12 +60,12 @@ export default function Home() {
 
       <div className="flex-1 grid grid-rows-[2fr_repeat(4,1fr)] md:grid-cols-[1fr_380px] md:grid-rows-[repeat(4,1fr)] min-h-0">
         <div className="md:row-span-4 relative overflow-hidden border-t border-[#1a1a1a]">
-          <Image 
-            src={heroImage?.imageUrl || '/images/hero-image.png'} 
-            alt={heroImage?.altText || 'Amdeli web design showcase'} 
-            fill 
-            priority 
-            className="absolute inset-0 w-full h-full object-cover opacity-55" 
+          <Image
+            src='/images/hero-image.png'
+            alt='Amdeli web design showcase'
+            fill
+            priority
+            className="absolute inset-0 w-full h-full object-cover opacity-55"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/90 via-[#141414]/20 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#141414]/30 to-transparent" />
