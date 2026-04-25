@@ -13,42 +13,23 @@ interface Portfolio {
   description?: string
 }
 
-interface HeroImage {
-  id: number
-  imageUrl: string
-  altText?: string
-}
+const DEFAULT_PROJECTS: Portfolio[] = [
+  { id: 1, title: 'Focus Honey', image: '/images/focushoney.png', href: 'https://focushoney.com', description: 'E-commerce platform for honey products' },
+  { id: 2, title: 'Pimpinis', image: '/images/pimpinis1.png', href: 'https://pimpinis.vercel.app', description: 'Fashion retail website' },
+  { id: 3, title: 'Folio', image: '/images/folio.png', href: 'https://folio-1cvo.vercel.app/', description: 'Portfolio template for creatives' },
+  { id: 4, title: 'Juro', image: '/images/juro.png', href: 'https://juro-one.vercel.app/', description: 'Legal tech platform' },
+  { id: 5, title: 'Born Seen', image: '/images/bornseen.png', href: 'https://born-seen.vercel.app/', description: 'Music artist portfolio' },
+]
 
 export default function Home() {
-  const [projects, setProjects] = useState<Portfolio[]>([])
-  const [heroImage, setHeroImage] = useState<HeroImage | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [projects, setProjects] = useState<Portfolio[]>(DEFAULT_PROJECTS)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [portfolioRes, heroRes] = await Promise.all([
-          fetch('/api/portfolio'),
-          fetch('/api/hero')
-        ])
-
-        if (portfolioRes.ok) {
-          const data = await portfolioRes.json()
-          setProjects(data)
-        }
-
-        if (heroRes.ok) {
-          const data = await heroRes.json()
-          if (data) setHeroImage(data)
-        }
-      } catch (error) {
-        console.error('Failed to fetch data:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchData()
+    fetch('/api/portfolio')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (data?.length) setProjects(data) })
+      .catch(() => {})
   }, [])
 
   const panelRowClass =

@@ -13,26 +13,24 @@ interface Service {
   href: string
 }
 
+const DEFAULT_SERVICES: Service[] = [
+  { id: 1, title: 'Basic Website', description: 'Perfect for small businesses looking to establish an online presence', tags: 'Custom domain, Business email, Google SEO, Mobile-ready, Contact form', href: '/services/basic-website' },
+  { id: 2, title: 'Online Store', description: 'Full-featured e-commerce solution for selling products online', tags: 'Product dashboard, Order tracking, Paystack, MoMo, Inventory management', href: '/services/online-store' },
+  { id: 3, title: 'Digital Marketing', description: 'Comprehensive marketing services to grow your online presence', tags: 'Google SEO, Google Business, Social media setup, Monthly reports', href: '/services/digital-marketing' },
+  { id: 4, title: 'Maintenance', description: 'Ongoing support and updates for your website', tags: 'Monthly updates, Security monitoring, Backups, Content edits', href: '/services/maintenance' },
+  { id: 5, title: 'Custom Development', description: 'Tailored web applications for your specific business needs', tags: 'Web apps, Booking systems, Portals, API integrations', href: '/services/custom-development' },
+  { id: 6, title: 'Business Consulting', description: 'Strategic guidance for your digital transformation', tags: 'Digital strategy, Competitor research, Growth roadmap', href: '/services/consulting' },
+]
+
 export default function ServicesPage() {
-  const [services, setServices] = useState<Service[]>([])
-  const [loading, setLoading] = useState(true)
+  const [services, setServices] = useState<Service[]>(DEFAULT_SERVICES)
+  const [loading] = useState(false)
 
   useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const res = await fetch('/api/services')
-        if (res.ok) {
-          const data = await res.json()
-          setServices(data)
-        }
-      } catch (error) {
-        console.error('Failed to fetch services:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchServices()
+    fetch('/api/services')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (data?.length) setServices(data) })
+      .catch(() => {})
   }, [])
 
   return (
