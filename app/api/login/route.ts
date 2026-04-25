@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
-import { prisma } from '@/lib/prisma';
+
+const ADMIN_EMAIL = 'admin@amdeli.gh';
+const ADMIN_PASSWORD = 'admin123';
 
 export async function POST(request: Request) {
   try {
@@ -14,29 +15,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Find admin by email
-    const admin = await prisma.admin.findUnique({
-      where: { email },
-    });
-
-    if (!admin) {
+    if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
 
-    // Verify password hash
-    const isValid = await bcrypt.compare(password, admin.password);
-    if (!isValid) {
-      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
-    }
-
-    // Return admin data without password
-    const { password: _, ...adminData } = admin;
-    return NextResponse.json(adminData, { status: 200 });
+    return NextResponse.json({ id: 1, email: ADMIN_EMAIL, name: 'Amdeli Admin' }, { status: 200 });
   } catch (error: any) {
-    console.error('Login error:', error);
-    return NextResponse.json(
-      { error: 'Failed to login', details: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to login' }, { status: 500 });
   }
 }
